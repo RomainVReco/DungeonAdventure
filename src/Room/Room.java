@@ -1,23 +1,25 @@
+package Room;
+
 import java.util.ArrayList;
 
 public class Room {
     public Room(int p_iIndex) {
         if (p_iIndex % 4 == 0 && p_iIndex % 3 == 0) {
-            //Create a Barbarian
+            //Create a Character.Barbarian
         } else if (p_iIndex % 4 == 0) {
-            //Create a Thief
+            //Create a Character.Thief
         } else if (p_iIndex % 3 == 0) {
-            //Create a Troll
+            //Create a Character.Troll
         } else if (isPrime(p_iIndex)) {
-            //Create a Sorcerer
+            //Create a Character.Sorcerer
         } else {
-            //Create a Zombie
+            //Create a Character.Zombie
         }
 
 //        if (p_iIndex % 7 == 0)
-//            //Make the room contains a HealthPotion
+//            //Make the room contains a Item.HealthPotion
 //        if (p_iIndex % 4 == 0)
-        //Make the room contains a  StrengthPotion()
+        //Make the room contains a  Item.StrengthPotion()
     }
 
     private boolean isPrime(int p_iIndex) {

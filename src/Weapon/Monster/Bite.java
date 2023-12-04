@@ -1,12 +1,14 @@
+package Weapon.Monster;
+
 /**
  * 
  */
-public class Club  {
+public class Bite {
 
     /**
      * Default constructor
      */
-    public Club() {
+    public Bite() {
     }
 
 }

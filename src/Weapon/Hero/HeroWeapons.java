@@ -1,3 +1,7 @@
+package Weapon.Hero;
+
+import Weapon.Weapon;
+
 /**
  * 
  */

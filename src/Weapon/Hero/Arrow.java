@@ -1,12 +1,14 @@
+package Weapon.Hero;
+
 /**
  * 
  */
-public class Character {
+public class Arrow {
 
     /**
      * Default constructor
      */
-    public Character() {
+    public Arrow() {
     }
 
 }

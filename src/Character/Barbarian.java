@@ -1,3 +1,5 @@
+package Character;
+
 /**
  *
  */
@@ -11,7 +13,7 @@ public class Barbarian{
             //create a health potion
         }
         else{
-            //create a StrengthPotion
+            //create a Item.StrengthPotion
         }
     }
 }

@@ -1,3 +1,5 @@
+package Weapon;
+
 public class ReduceLifePower {
 
     public void dischargeOnTarget(Barbarian p_Barbarian) {
