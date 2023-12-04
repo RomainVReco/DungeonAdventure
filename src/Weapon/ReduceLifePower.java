@@ -1,5 +1,7 @@
 package Weapon;
 
+import Character.*;
+
 public class ReduceLifePower {
 
     public void dischargeOnTarget(Barbarian p_Barbarian) {

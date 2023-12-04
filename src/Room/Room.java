@@ -1,7 +1,5 @@
 package Room;
 
-import java.util.ArrayList;
-
 public class Room {
     public Room(int p_iIndex) {
         if (p_iIndex % 4 == 0 && p_iIndex % 3 == 0) {
@@ -16,10 +14,10 @@ public class Room {
             //Create a Character.Zombie
         }
 
-//        if (p_iIndex % 7 == 0)
-//            //Make the room contains a Item.HealthPotion
-//        if (p_iIndex % 4 == 0)
-        //Make the room contains a  Item.StrengthPotion()
+        if (p_iIndex % 7 == 0)
+            //Make the room contains a Item.HealthPotion
+        if (p_iIndex % 4 == 0)
+        Make the room contains a  Item.StrengthPotion()
     }
 
     private boolean isPrime(int p_iIndex) {

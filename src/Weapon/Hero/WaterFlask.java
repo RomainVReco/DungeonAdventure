@@ -1,9 +1,9 @@
 package Weapon.Hero;
 
 /**
- * 
+ *
  */
-public class WaterFlask{
+public class WaterFlask {
 
     /**
      * Default constructor

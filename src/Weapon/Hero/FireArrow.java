@@ -1,7 +1,7 @@
 package Weapon.Hero;
 
 /**
- * 
+ *
  */
 public class FireArrow {
 

@@ -1,9 +1,9 @@
 package Weapon.Monster;
 
 /**
- * 
+ *
  */
-public class Club  {
+public class Club {
 
     /**
      * Default constructor

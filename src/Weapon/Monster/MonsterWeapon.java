@@ -1,8 +1,8 @@
 package Weapon.Monster;
 
 /**
- * 
+ *
  */
-public class MonsterWeapon{
+public class MonsterWeapon {
 
 }
