@@ -56,4 +56,12 @@ public class Room {
     public void setSetOfItems(Set<Item> setOfItems) {
         this.setOfItems = setOfItems;
     }
+
+    /**
+     * La méthode enterRoom va déclencer la séquence de combat cf. diagramme de séquence Room fighting management
+     * @param hero
+     */
+    public void enterRoom(Hero hero){
+
+    }
 }

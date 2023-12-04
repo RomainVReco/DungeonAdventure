@@ -3,7 +3,7 @@ package Weapon.Monster;
 /**
  *
  */
-public class Dagger {
+public class Dagger extends MonsterWeapon{
 
     /**
      * Default constructor

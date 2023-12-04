@@ -1,8 +1,10 @@
 package Weapon.Monster;
 
+import Weapon.Weapon;
+
 /**
  *
  */
-public class MonsterWeapon {
+public class MonsterWeapon extends Weapon {
 
 }
