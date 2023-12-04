@@ -3,7 +3,7 @@ package Character;
 /**
  *
  */
-public class Barbarian {
+public class Barbarian extends Monster {
 
     /**
      * Default constructor
@@ -14,5 +14,10 @@ public class Barbarian {
         } else {
             //create a Item.StrengthPotion
         }
+    }
+
+    @Override
+    public void search() {
+
     }
 }

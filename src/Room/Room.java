@@ -1,23 +1,33 @@
 package Room;
+import Character.*;
+import Item.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class Room {
+    Monster monster;
+    private Set<Item> setOfItems = new HashSet<>();
+
     public Room(int p_iIndex) {
         if (p_iIndex % 4 == 0 && p_iIndex % 3 == 0) {
-            //Create a Character.Barbarian
+            this.monster = new Barbarian();
         } else if (p_iIndex % 4 == 0) {
-            //Create a Character.Thief
+            this.monster = new Thief();
         } else if (p_iIndex % 3 == 0) {
-            //Create a Character.Troll
+            this.monster = new Troll();
         } else if (isPrime(p_iIndex)) {
-            //Create a Character.Sorcerer
+            this.monster = new Sorcerer();
         } else {
-            //Create a Character.Zombie
+            this.monster = new Zombie();
         }
 
-        if (p_iIndex % 7 == 0)
-            //Make the room contains a Item.HealthPotion
-        if (p_iIndex % 4 == 0)
-        Make the room contains a  Item.StrengthPotion()
+        if (p_iIndex % 7 == 0){
+            this.setOfItems.add(new HealthPotion());
+        }
+        if (p_iIndex % 4 == 0){
+            this.setOfItems.add(new StrengthPotion());
+        }
     }
 
     private boolean isPrime(int p_iIndex) {
@@ -29,5 +39,21 @@ public class Room {
             if (p_iIndex % i == 0) return false;
         }
         return true;
+    }
+
+    public Monster getMonster() {
+        return monster;
+    }
+
+    public void setMonster(Monster monster) {
+        this.monster = monster;
+    }
+
+    public Set<Item> getSetOfItems() {
+        return setOfItems;
+    }
+
+    public void setSetOfItems(Set<Item> setOfItems) {
+        this.setOfItems = setOfItems;
     }
 }

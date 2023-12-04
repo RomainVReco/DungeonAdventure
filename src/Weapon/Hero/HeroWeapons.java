@@ -5,7 +5,7 @@ import Weapon.Weapon;
 /**
  *
  */
-public class HeroWeapons extends Weapon implements Searchable {
+public class HeroWeapons extends Weapon {
 
 
 }

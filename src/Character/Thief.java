@@ -14,4 +14,8 @@ public class Thief extends Monster {
         }
     }
 
+    @Override
+    public void search() {
+
+    }
 }
