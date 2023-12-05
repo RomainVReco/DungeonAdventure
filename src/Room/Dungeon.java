@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dungeon {
-    List<Room> listeRoom = new ArrayList<>();
     int nombreRoom;
+    int currentRoom;
 
     public Dungeon(int nombreRoom) {
         this.nombreRoom = nombreRoom;
@@ -16,6 +16,13 @@ public class Dungeon {
     }
 
     private void genererRoom(int nombreRoom) {
+        Room roomTemp;
+        Room nouvelleRoom = null;
+        for (int i=1; i<=nombreRoom; i++){
+            roomTemp = new Room(i);
+            this.getListeRoom().add(roomTemp);
+            roomTemp = nouvelleRoom;
+        }
 
     }
 
@@ -49,6 +56,7 @@ public class Dungeon {
     }
 
     public List<Monster> getAllMonstersFromDungeon() {
+        for (Room )
         return null;
     }
 
