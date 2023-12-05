@@ -25,11 +25,13 @@ public class Hero extends Character {
         Sword sword = new Sword();
         Spear spear = new Spear();
         FireArrow fireArrow = new FireArrow();
+
         this.arsenal.put("Arrow", arrow);
         this.arsenal.put("Fire Arrow",fireArrow);
         this.arsenal.put("Spear", spear);
         this.arsenal.put("Sword",sword);
         this.arsenal.put("Water Flask", waterFlask);
+
     }
 
     /******* GETTERS ******/
@@ -44,9 +46,13 @@ public class Hero extends Character {
 
     /******* METHODES ******/
     private void selectWeaponFromArsenal(String weaponClassName){
+        this.setWeapon(this.getArsenal().get(weaponClassName));
 
     }
     public void discoverEnnemy(Monster monster){
+        String weaponClassName = monster.getEffectiveWeaponType();
+        this.selectWeaponFromArsenal(weaponClassName);
+
 
 
     }
