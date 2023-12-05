@@ -44,9 +44,6 @@ public abstract class Monster extends Character implements Searchable {
         this.potion = potion;
     }
 
-    protected void setWeapon(Weapon armeAssignee){
-        this.weapon=armeAssignee;
-    }
 
     /**
      * A coder
