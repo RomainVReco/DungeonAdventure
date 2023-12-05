@@ -66,5 +66,6 @@ public class Room {
      */
     public void enterRoom(Hero hero){
 
+
     }
 }

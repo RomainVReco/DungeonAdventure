@@ -15,16 +15,4 @@ public class Hero extends Character {
     private ReduceLifePower power;
     private HashMap<String, HeroWeapons> arsenal = new HashMap<>();
 
-
-
-
-    
-    /**
-     * A coder
-     * @param damages
-     */
-    @Override
-    public void receiveDamages(int damages) {
-
-    }
 }

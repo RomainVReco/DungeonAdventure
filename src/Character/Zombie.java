@@ -22,20 +22,6 @@ public class Zombie extends Monster {
     }
 
     @Override
-    public void receiveDamages(int damages) {
-
-    }
-
-    /**
-     * A coder
-     * @param targetCharacter
-     */
-    @Override
-    public void attack(Character targetCharacter) {
-
-    }
-
-    @Override
     public void search() {
 
     }

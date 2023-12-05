@@ -8,6 +8,7 @@ class DungeonTest {
 
     @Test
     void getListeRoom() {
+        assertNotEquals(1,1);
     }
 
     @Test
