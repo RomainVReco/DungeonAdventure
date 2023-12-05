@@ -22,23 +22,6 @@ public class Troll extends Monster {
         }
     }
 
-    /**
-     * A coder
-     * @param damages
-     */
-    @Override
-    public void receiveDamages(int damages) {
-
-    }
-
-    /**
-     * A coder
-     * @param targetCharacter
-     */
-    @Override
-    public void attack(Character targetCharacter) {
-
-    }
 
     /**
      * A coder

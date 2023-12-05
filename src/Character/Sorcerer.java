@@ -21,15 +21,6 @@ public class Sorcerer extends Monster {
         }
     }
 
-    @Override
-    public void receiveDamages(int damages) {
-
-    }
-
-    @Override
-    public void attack(Character targetCharacter) {
-
-    }
 
     @Override
     public void hitByPower(ReduceLifePower power) {

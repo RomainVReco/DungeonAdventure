@@ -17,14 +17,5 @@ public class Hero extends Character {
 
 
 
-
     
-    /**
-     * A coder
-     * @param damages
-     */
-    @Override
-    public void receiveDamages(int damages) {
-
-    }
 }

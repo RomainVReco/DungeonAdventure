@@ -1,4 +1,4 @@
-package Test;
+package Test.Room;
 
 import Room.Room;
 import org.junit.jupiter.api.Test;
