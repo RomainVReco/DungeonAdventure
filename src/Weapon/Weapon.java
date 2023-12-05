@@ -22,4 +22,7 @@ public class Weapon {
         p_TargetCharacter.receiveDamages(m_iAttackPoints);
     }
 
+    public int getAttackPoints() {
+        return m_iAttackPoints;
+    }
 }

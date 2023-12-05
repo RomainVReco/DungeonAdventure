@@ -8,9 +8,9 @@ import java.util.List;
 
 public class Dungeon {
     List<Room> listeRoom = new ArrayList<>();
-    List<Monster> listeMonstres = new ArrayList<>();
+    List<Monster> listeMonstres;
     int nombreRoom;
-    int currentRoom;
+    int currentRoom = 1;
 
     public Dungeon(int nombreRoom) {
         this.nombreRoom = nombreRoom;
@@ -25,13 +25,40 @@ public class Dungeon {
             this.getListeRoom().add(roomTemp);
             roomTemp = null;
         }
-
     }
 
-
+    public List<Monster> getAllMonstersFromDungeon() {
+        List<Monster> listeMonstreRoom = new ArrayList<>();
+        for (Room room : this.getListeRoom()){
+            Monster monsterTemp = room.getMonster();
+            listeMonstreRoom.add(monsterTemp);
+        }
+        return listeMonstreRoom;
+    }
+    public void greetHeros(Hero hero) {
+        System.out.print("Aventurier, bienvenue dans le donjon de la Muerte");
+        for (Room room : this.getListeRoom()){
+            System.out.println("Préparte toi à rentrer dans la pièce n°"+this.getCurrentRoom());
+            room.enterRoom(hero);
+            if (!hero.isAlive()) {
+                System.out.println("Le héros est mort. Une nuit de mille ans va s'abattre sur le royaume");
+                return;
+            }
+            System.out.println("Bravo, tu as vaincu le "+room.getMonster()+". Un autre défi t'attend aventurier");
+            this.currentRoom +=1;
+        }
+    }
     public List<Room> getListeRoom() {
         return listeRoom;
     }
+
+    public List<Monster> getListeMonstres() {
+        return listeMonstres;
+    }
+    public int getCurrentRoom() {
+        return currentRoom;
+    }
+
 
     public void setListeRoom(List<Room> listeRoom) {
         this.listeRoom = listeRoom;
@@ -53,34 +80,15 @@ public class Dungeon {
         return this.listeRoom.add(nouvelleRoom);
     }
 
-    public void greetHeros(Hero hero) {
-        System.out.print("Aventurier, bienvenue dans le donjon de la Muerte");
-    }
-
-    public List<Monster> getListeMonstres() {
-        return listeMonstres;
-    }
-
     public void setListeMonstres(List<Monster> listeMonstres) {
         this.listeMonstres = listeMonstres;
-    }
-
-    public int getCurrentRoom() {
-        return currentRoom;
     }
 
     public void setCurrentRoom(int currentRoom) {
         this.currentRoom = currentRoom;
     }
 
-    public List<Monster> getAllMonstersFromDungeon() {
-        List<Monster> listeMonstreRoom = new ArrayList<>();
-        for (Room room : this.getListeRoom()){
-            Monster monsterTemp = room.getMonster();
-            listeMonstreRoom.add(monsterTemp);
-        }
-        return listeMonstreRoom;
-    }
+
 
 
 }

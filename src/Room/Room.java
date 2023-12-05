@@ -12,9 +12,6 @@ public class Room {
     public Room(int p_iIndex) {
         if (p_iIndex % 4 == 0 && p_iIndex % 3 == 0) {
             this.monster = new Barbarian();
-            Barbarian barbare = new Barbarian();
-            barbare.isAlive();
-            barbare.getNbLifePoints();
         } else if (p_iIndex % 4 == 0) {
             this.monster = new Thief();
         } else if (p_iIndex % 3 == 0) {
@@ -65,6 +62,14 @@ public class Room {
      * @param hero
      */
     public void enterRoom(Hero hero){
+
+        while (this.monster.isAlive() && hero.isAlive()){
+
+            while (hero.isAlive()){
+
+            }
+        }
+
 
 
     }
