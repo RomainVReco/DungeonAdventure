@@ -8,21 +8,22 @@ import java.util.List;
 
 public class Dungeon {
     List<Room> listeRoom = new ArrayList<>();
+    List<Monster> listeMonstres = new ArrayList<>();
     int nombreRoom;
     int currentRoom;
 
     public Dungeon(int nombreRoom) {
         this.nombreRoom = nombreRoom;
         genererRoom(nombreRoom);
+        this.listeMonstres = this.getAllMonstersFromDungeon();
     }
 
     private void genererRoom(int nombreRoom) {
         Room roomTemp;
-        Room nouvelleRoom = null;
         for (int i=1; i<=nombreRoom; i++){
             roomTemp = new Room(i);
             this.getListeRoom().add(roomTemp);
-            roomTemp = nouvelleRoom;
+            roomTemp = null;
         }
 
     }
@@ -56,9 +57,29 @@ public class Dungeon {
         System.out.print("Aventurier, bienvenue dans le donjon de la Muerte");
     }
 
+    public List<Monster> getListeMonstres() {
+        return listeMonstres;
+    }
+
+    public void setListeMonstres(List<Monster> listeMonstres) {
+        this.listeMonstres = listeMonstres;
+    }
+
+    public int getCurrentRoom() {
+        return currentRoom;
+    }
+
+    public void setCurrentRoom(int currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
     public List<Monster> getAllMonstersFromDungeon() {
-        for (Room )
-        return null;
+        List<Monster> listeMonstreRoom = new ArrayList<>();
+        for (Room room : this.getListeRoom()){
+            Monster monsterTemp = room.getMonster();
+            listeMonstreRoom.add(monsterTemp);
+        }
+        return listeMonstreRoom;
     }
 
 
