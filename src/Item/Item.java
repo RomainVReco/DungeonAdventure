@@ -11,7 +11,7 @@ public abstract class Item {
     public abstract void applyEffect(Hero hero);
 
     public void setValue(int value){
-
+        this.effectValue = value;
     }
 
 

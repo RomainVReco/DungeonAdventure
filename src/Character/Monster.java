@@ -62,7 +62,12 @@ public abstract class Monster extends Character implements Searchable {
 
     @Override
     public Item search(){
-        this.setSearchDone(true);
-        return this.getPotion();
+        if (!searchDone) {
+            this.setSearchDone(true);
+            return this.getPotion();
+        } else {
+            System.out.println("Cette engeance de la nature a déjà été fouillée");
+            return null;
+        }
     }
 }

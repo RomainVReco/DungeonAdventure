@@ -37,17 +37,32 @@ public class Dungeon {
     }
     public void greetHeros(Hero hero) {
         System.out.print("Aventurier, bienvenue dans le donjon de la Muerte");
-        for (Room room : this.getListeRoom()){
+        do {
             System.out.println("Préparte toi à rentrer dans la pièce n°"+this.getCurrentRoom());
-            room.enterRoom(hero);
-            if (!hero.isAlive()) {
-                System.out.println("Le héros est mort. Une nuit de mille ans va s'abattre sur le royaume");
-                return;
-            }
-            System.out.println("Bravo, tu as vaincu le "+room.getMonster()+". Un autre défi t'attend aventurier");
+            Room roomToEnter = this.listeRoom.get(this.currentRoom);
+            roomToEnter.enterRoom(hero);
             this.currentRoom +=1;
-        }
+        } while((!hero.isAlive())||(this.currentRoom<this.nombreRoom));
+        if (!hero.isAlive()) {
+            System.out.println("Le héros est mort. Une nuit de mille ans va s'abattre sur le royaume");
+            gameOver();
+            return;
+        } else victory();
+//        for (Room room : this.getListeRoom()){
+//            System.out.println("Préparte toi à rentrer dans la pièce n°"+this.getCurrentRoom());
+//            room.enterRoom(hero);
+//
+//            System.out.println("Bravo, tu as vaincu le "+room.getMonster()+". Un autre défi t'attend aventurier");
+//            this.currentRoom +=1;
+//        }
     }
+
+    private void victory() {
+    }
+
+    private void gameOver() {
+    }
+
     public List<Room> getListeRoom() {
         return listeRoom;
     }

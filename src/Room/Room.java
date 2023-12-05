@@ -8,6 +8,7 @@ import java.util.stream.Stream;
 public class Room implements Searchable {
     Monster monster;
     private HashMap<String, Item> setOfItems = new HashMap<>();
+    private boolean hasBeenSearched = false;
 
     public Room(int p_iIndex) {
         if (p_iIndex % 4 == 0 && p_iIndex % 3 == 0) {
@@ -41,6 +42,50 @@ public class Room implements Searchable {
         return true;
     }
 
+    /**
+     * La méthode enterRoom va déclencher la séquence de combat cf. diagramme de séquence Room fighting management
+     *
+     * @param hero
+     */
+    public void enterRoom(Hero hero) {
+        hero.discoverEnnemy(this.monster);
+        while (this.monster.isAlive() && hero.isAlive()) {
+            this.monster.attack(hero);
+            if (hero.isAlive()) {
+                hero.attack(this.monster);
+            } else return;
+        }
+        // implanter une demande pour fouiller la pièce et/ou le monstre
+        hero.searchForPotions(this);
+        hero.searchForPotions(this.monster);
+        System.out.println("La pièce a été purgée de ses éléments impurs");
+    }
+
+    @Override
+    public Item search() {
+        if (!this.hasBeenSearched) {
+            this.hasBeenSearched = true;
+            if (this.setOfItems.size() < 2) {
+                for (Item item : this.setOfItems.values()) {
+                    System.out.println("Vous avez trouvé une potion de " + item.toString());
+                    return item;
+                }
+            }
+            // Demander au jouer quelle potion il veut
+            else {
+                String x = "";
+                if (x.equals("Health potion")) {
+                    System.out.println("Vous avez choisi une potion de " + this.setOfItems.get("x").toString());
+                    return this.setOfItems.get("x");
+                } else {
+                    System.out.println("Vous avez choisi une potion de " + this.setOfItems.get("x").toString());
+                    return this.setOfItems.get("Strength potion");
+                }
+            }
+        } else System.out.println("La pièce a déjà été fouillée");
+        return null;
+    }
+
     public Monster getMonster() {
         return monster;
     }
@@ -57,45 +102,4 @@ public class Room implements Searchable {
         this.setOfItems = setOfItems;
     }
 
-    /**
-     * La méthode enterRoom va déclencher la séquence de combat cf. diagramme de séquence Room fighting management
-     *
-     * @param hero
-     */
-    public void enterRoom(Hero hero) {
-        hero.discoverEnnemy(this.monster);
-        while (this.monster.isAlive() && hero.isAlive()) {
-            this.monster.attack(hero);
-            if (hero.isAlive()) {
-                hero.attack(this.monster);
-            }
-        }
-        // implanter une demande pour fouiller la pièce et/ou le monstre
-        hero.searchForPotions(this);
-        hero.searchForPotions(this.monster);
-
-
-    }
-
-    @Override
-    public Item search() {
-        if (this.setOfItems.size() < 2) {
-            for (Item item : this.setOfItems.values()) {
-                System.out.println("Vous avez trouvé une potion de " + item.toString());
-                return item;
-            }
-        }
-        // Demander au jouer quelle potion il veut
-        else {
-            String x = "";
-            if (x.equals("Health potion")) {
-                System.out.println("Vous avez choisi une potion de " + this.setOfItems.get("x").toString());
-                return this.setOfItems.get("x");
-            } else {
-                System.out.println("Vous avez choisi une potion de " + this.setOfItems.get("x").toString());
-                return this.setOfItems.get("Strength potion");
-            }
-        }
-        return null;
-    }
 }
