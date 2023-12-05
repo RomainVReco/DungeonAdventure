@@ -25,11 +25,11 @@ public class Hero extends Character {
         Sword sword = new Sword();
         Spear spear = new Spear();
         FireArrow fireArrow = new FireArrow();
-        arsenal.put("Arrow", arrow);
-        arsenal.put("Fire Arrow",fireArrow);
-        arsenal.put("Spear", spear);
-        arsenal.put("Sword",sword);
-        arsenal.put("Water Flask", waterFlask);
+        this.arsenal.put("Arrow", arrow);
+        this.arsenal.put("Fire Arrow",fireArrow);
+        this.arsenal.put("Spear", spear);
+        this.arsenal.put("Sword",sword);
+        this.arsenal.put("Water Flask", waterFlask);
     }
 
     /******* GETTERS ******/
@@ -47,6 +47,7 @@ public class Hero extends Character {
 
     }
     public void discoverEnnemy(Monster monster){
+
 
     }
     public void improveHealth(int value){

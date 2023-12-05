@@ -6,7 +6,7 @@ public class MonsterWeapon extends Weapon {
   
     public MonsterWeapon() {
     }
-}
+
     /*** Attributs ***/
     private int criticalCountDown;
     private int maxRoundBeforeCritical;
