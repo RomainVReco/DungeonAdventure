@@ -1,7 +1,6 @@
 package Test.Character;
 
 import Weapon.Hero.*;
-import Weapon.Weapon;
 import org.junit.jupiter.api.Test;
 import Character.Hero;
 
