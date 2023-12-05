@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Dungeon {
+    List<Room> listeRoom = new ArrayList<>();
     int nombreRoom;
     int currentRoom;
 
