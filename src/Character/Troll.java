@@ -1,5 +1,6 @@
 package Character;
 
+import Item.Item;
 import Item.StrengthPotion;
 import Weapon.Monster.Club;
 import Weapon.ReduceLifePower;
@@ -21,8 +22,6 @@ public class Troll extends Monster {
             this.setPotion(new StrengthPotion());
         }
     }
-
-
     /**
      * A coder
      * @param power
@@ -32,11 +31,4 @@ public class Troll extends Monster {
 
     }
 
-    /**
-     * A coder
-     */
-    @Override
-    public void search() {
-
-    }
 }

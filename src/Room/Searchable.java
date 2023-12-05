@@ -7,7 +7,7 @@ import Item.*;
  */
 public interface Searchable {
 
-    void search();
+    Item search();
 
 
 }

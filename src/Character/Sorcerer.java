@@ -1,6 +1,7 @@
 package Character;
 
 import Item.HealthPotion;
+import Item.Item;
 import Weapon.Monster.Lightning;
 import Weapon.ReduceLifePower;
 
@@ -27,8 +28,4 @@ public class Sorcerer extends Monster {
 
     }
 
-    @Override
-    public void search() {
-
-    }
 }
