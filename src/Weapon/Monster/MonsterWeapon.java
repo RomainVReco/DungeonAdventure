@@ -3,6 +3,10 @@ import Character.Character;
 import Weapon.Weapon;
 
 public class MonsterWeapon extends Weapon {
+  
+    public MonsterWeapon() {
+    }
+}
     /*** Attributs ***/
     private int criticalCountDown;
     private int maxRoundBeforeCritical;
@@ -30,5 +34,3 @@ public class MonsterWeapon extends Weapon {
         super.inflictDamage((Character) TargetCharacter);
     }
 }
-
-
