@@ -18,16 +18,7 @@ public class Hero extends Character {
 
 
 
-
-    /**
-     * A coder
-     * @param targetCharacter
-     */
-    @Override
-    public void attack(Character targetCharacter) {
-
-    }
-
+    
     /**
      * A coder
      * @param damages

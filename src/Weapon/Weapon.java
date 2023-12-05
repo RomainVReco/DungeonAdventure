@@ -1,4 +1,5 @@
 package Weapon;
+import Character.Character;
 
 /**
  *

@@ -14,11 +14,16 @@ public abstract class Character {
     public Character() {
     }
 
-    public abstract void attack(Character targetCharacter);
+    public void attack(Character targetCharacter){
+
+    };
     public int getNbLifePoints(){
         return lifePoints;
     }
-    public abstract void receiveDamages(int damages);
+    public void receiveDamages(int damages){
+        this.lifePoints -= damages;
+        System.out.println(damages+" dégats infligés. Points de vie restants : "+this.getNbLifePoints());
+    };
     public boolean isAlive() {
         return (this.getNbLifePoints() > 0);
     }
