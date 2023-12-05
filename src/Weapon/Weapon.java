@@ -4,18 +4,14 @@ package Weapon;
  *
  */
 public class Weapon {
-
+    protected int m_iAttackPoints;
     /**
      * Default constructor
      */
+
     public Weapon() {
         m_iAttackPoints = 10;
     }
-
-    /**
-     *
-     */
-    protected int m_iAttackPoints;
 
 
     /**

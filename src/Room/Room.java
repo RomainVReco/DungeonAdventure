@@ -12,6 +12,9 @@ public class Room {
     public Room(int p_iIndex) {
         if (p_iIndex % 4 == 0 && p_iIndex % 3 == 0) {
             this.monster = new Barbarian();
+            Barbarian barbare = new Barbarian();
+            barbare.isAlive();
+            barbare.getNbLifePoints();
         } else if (p_iIndex % 4 == 0) {
             this.monster = new Thief();
         } else if (p_iIndex % 3 == 0) {
@@ -58,7 +61,7 @@ public class Room {
     }
 
     /**
-     * La méthode enterRoom va déclencer la séquence de combat cf. diagramme de séquence Room fighting management
+     * La méthode enterRoom va déclencher la séquence de combat cf. diagramme de séquence Room fighting management
      * @param hero
      */
     public void enterRoom(Hero hero){
