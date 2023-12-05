@@ -1,5 +1,7 @@
 package Character;
 
+import Item.HealthPotion;
+import Weapon.Monster.Lightning;
 import Weapon.ReduceLifePower;
 
 /**
@@ -11,8 +13,11 @@ public class Sorcerer extends Monster {
      * Default constructor
      */
     public Sorcerer() {
+        s_iNbSorcerInstances +=1;
+        this.setWeapon(new Lightning());
+        this.setEffectiveWeaponType("WaterFlask");
         if (Monster.s_iNbSorcerInstances % 3 == 0) {
-            //create a health potion
+            this.setPotion(new HealthPotion());
         }
     }
 
