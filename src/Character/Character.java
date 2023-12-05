@@ -17,6 +17,7 @@ public abstract class Character {
     public void attack(Character targetCharacter){
         this.getWeapon().inflictDamage(targetCharacter);
     }
+
     public int getNbLifePoints(){
 
         return lifePoints;
