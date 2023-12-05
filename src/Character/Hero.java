@@ -62,6 +62,7 @@ public class Hero extends Character {
     public void improveStrength(int value){
 
     }
+    // Attention à prévoir un retour null, dans le cas où le Searchable a déjà été fouillé
     public void searchForPotions(Searchable searchable){
 
     }
