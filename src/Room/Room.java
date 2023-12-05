@@ -2,12 +2,12 @@ package Room;
 import Character.*;
 import Item.*;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.stream.Stream;
 
-public class Room {
+public class Room implements Searchable {
     Monster monster;
-    private Set<Item> setOfItems = new HashSet<>();
+    private HashMap<String, Item> setOfItems = new HashMap<>();
 
     public Room(int p_iIndex) {
         if (p_iIndex % 4 == 0 && p_iIndex % 3 == 0) {
@@ -22,11 +22,11 @@ public class Room {
             this.monster = new Zombie();
         }
 
-        if (p_iIndex % 7 == 0){
-            this.setOfItems.add(new HealthPotion());
+        if (p_iIndex % 7 == 0) {
+            this.setOfItems.put("Health potion", new HealthPotion());
         }
-        if (p_iIndex % 4 == 0){
-            this.setOfItems.add(new StrengthPotion());
+        if (p_iIndex % 4 == 0) {
+            this.setOfItems.put("Strength potion", new StrengthPotion());
         }
     }
 
@@ -49,28 +49,53 @@ public class Room {
         this.monster = monster;
     }
 
-    public Set<Item> getSetOfItems() {
+    public HashMap<String, Item> getSetOfItems() {
         return setOfItems;
     }
 
-    public void setSetOfItems(Set<Item> setOfItems) {
+    public void setSetOfItems(HashMap<String, Item> setOfItems) {
         this.setOfItems = setOfItems;
     }
 
     /**
      * La méthode enterRoom va déclencher la séquence de combat cf. diagramme de séquence Room fighting management
+     *
      * @param hero
      */
-    public void enterRoom(Hero hero){
-
-        while (this.monster.isAlive() && hero.isAlive()){
-
-            while (hero.isAlive()){
-
+    public void enterRoom(Hero hero) {
+        hero.discoverEnnemy(this.monster);
+        while (this.monster.isAlive() && hero.isAlive()) {
+            this.monster.attack(hero);
+            if (hero.isAlive()) {
+                hero.attack(this.monster);
             }
         }
+        // implanter une demande pour fouiller la pièce et/ou le monstre
+        hero.searchForPotions(this);
+        hero.searchForPotions(this.monster);
 
 
+    }
 
+    @Override
+    public Item search() {
+        if (this.setOfItems.size() < 2) {
+            for (Item item : this.setOfItems.values()) {
+                System.out.println("Vous avez trouvé une potion de " + item.toString());
+                return item;
+            }
+        }
+        // Demander au jouer quelle potion il veut
+        else {
+            String x = "";
+            if (x.equals("Health potion")) {
+                System.out.println("Vous avez choisi une potion de " + this.setOfItems.get("x").toString());
+                return this.setOfItems.get("x");
+            } else {
+                System.out.println("Vous avez choisi une potion de " + this.setOfItems.get("x").toString());
+                return this.setOfItems.get("Strength potion");
+            }
+        }
+        return null;
     }
 }

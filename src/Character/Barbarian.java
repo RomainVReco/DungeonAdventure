@@ -1,6 +1,7 @@
 package Character;
 
 import Item.HealthPotion;
+import Item.Item;
 import Item.StrengthPotion;
 import Weapon.Monster.Axe;
 import Weapon.ReduceLifePower;
@@ -40,11 +41,9 @@ public class Barbarian extends Monster {
 
     /**
      * A coder
+     *
+     * @return
      */
-    @Override
-    public void search() {
-
-    }
 
     /**
      * A coder

@@ -59,4 +59,10 @@ public abstract class Monster extends Character implements Searchable {
      * @param power
      */
     public abstract void hitByPower(ReduceLifePower power);
+
+    @Override
+    public Item search(){
+        this.setSearchDone(true);
+        return this.getPotion();
+    }
 }

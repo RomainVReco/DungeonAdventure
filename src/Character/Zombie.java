@@ -1,5 +1,6 @@
 package Character;
 
+import Item.Item;
 import Item.StrengthPotion;
 import Weapon.Monster.Bite;
 import Weapon.ReduceLifePower;
@@ -19,11 +20,6 @@ public class Zombie extends Monster {
         if (s_iNbZombieInstances % 5 == 0) {
             this.setPotion(new StrengthPotion());
         }
-    }
-
-    @Override
-    public void search() {
-
     }
 
     @Override
