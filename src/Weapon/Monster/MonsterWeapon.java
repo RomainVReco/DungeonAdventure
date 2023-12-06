@@ -23,6 +23,9 @@ public class MonsterWeapon extends Weapon {
      * @param targetCharacter : le personnage qui va subir les dégâts de l'arme
      */
     public void inflictDamage(Character targetCharacter) {
+        if (this.maxRoundBeforeCritical !=-1 ){
+            incrementCriticalCountDown();
+        }
         if (this.criticalCountDown == this.maxRoundBeforeCritical){
             float baseDamage = Integer.valueOf(this.getAttackPoints()).floatValue();
             float damageToApply = this.bonusDamage * baseDamage;
@@ -30,12 +33,7 @@ public class MonsterWeapon extends Weapon {
             targetCharacter.receiveDamages(finalDamage);
             this.setCriticalCountDown(0);
         }
-        else {
-            targetCharacter.receiveDamages(this.getAttackPoints());
-            if (this.maxRoundBeforeCritical !=-1 ){
-                incrementCriticalCountDown();
-            }
-        }
+        else targetCharacter.receiveDamages(this.getAttackPoints());
     }
     /**
      * Cette méthode priée s'occupe d'incrémenter le compteur de coup critique. Son appel dépend du paramétrage
