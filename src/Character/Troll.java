@@ -15,6 +15,7 @@ public class Troll extends Monster {
      */
     public Troll() {
         s_iNbTrollInstances += 1;
+        this.setMonsterName("Troll");
         this.setEffectiveWeaponType("Lance");
         this.setWeapon(new Club());
         // a checker si %4 == 0 est plus adapté que 3 car on parle de 1 sur 4 à partir de 3...
@@ -28,7 +29,7 @@ public class Troll extends Monster {
      */
     @Override
     public void hitByPower(ReduceLifePower power) {
-
+        power.dischargeOnTarget(this);
     }
 
 }

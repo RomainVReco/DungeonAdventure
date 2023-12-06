@@ -13,6 +13,7 @@ public class Thief extends Monster {
 
     public Thief() {
         s_iNbThiefInstances += 1;
+        this.setMonsterName("Thief");
         this.setWeapon(new Dagger());
         this.setEffectiveWeaponType("Arrow"); //this.effectiveWeaponType = "Arrow";
         if (Monster.s_iNbThiefInstances % 6 == 1) {
@@ -22,6 +23,6 @@ public class Thief extends Monster {
 
     @Override
     public void hitByPower(ReduceLifePower power) {
-
+        power.dischargeOnTarget(this);
     }
 }
