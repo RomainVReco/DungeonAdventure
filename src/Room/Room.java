@@ -1,7 +1,7 @@
 package Room;
 import Character.*;
+import GestionUtilisateur.GestionUser;
 import Item.*;
-
 import java.util.HashMap;
 import java.util.stream.Stream;
 
@@ -9,6 +9,8 @@ public class Room implements Searchable {
     Monster monster;
     private HashMap<String, Item> setOfItems = new HashMap<>();
     private boolean hasBeenSearched = false;
+
+    GestionUser gestionUser = new GestionUser();
 
     public Room(int p_iIndex) {
         if (p_iIndex % 4 == 0 && p_iIndex % 3 == 0) {
@@ -48,16 +50,43 @@ public class Room implements Searchable {
      * @param hero : le héros créer à l'initialisation du jeu
      */
     public void enterRoom(Hero hero) {
+        // Notify the hero about the discovery of an enemy in the room
         hero.discoverEnnemy(this.monster);
+
+        // Continue the battle until either the monster or the hero is defeated
         while (this.monster.isAlive() && hero.isAlive()) {
-            this.monster.attack(hero);
+            // The monster attacks the hero
+              this.monster.attack(hero);
+            System.out.println(this.monster.getMonsterName() + " attacks the hero with " + this.monster.getWeapon() +
+                    " and inflicts " + monsterAttackDamage + " damage.");
+            System.out.println("Hero has been hit and has now " + hero.getHealth() + " life points left");
+
+            // Check if the hero is still alive before allowing the hero to counter-attack
             if (hero.isAlive()) {
+                // L'hero counter-attaque le monstre
                 hero.attack(this.monster);
-            } else return;
+                System.out.println("Hero responds to the attack with its " + hero.getWeapon() +
+                        " and inflicts " + heroAttackDamage + " damage.");
+                System.out.println(this.monster.getMonsterName() + " has been hit and has now " + this.monster.getHealth() + " life points left");
+            } else {
+
+                return;
+            }
         }
-        // implanter une demande pour fouiller la pièce et/ou le monstre
-        hero.searchForPotions(this);
-        hero.searchForPotions(this.monster);
+
+        // Apres le combat, demander au Hero s'il veut fouiller la piece
+        char searchRoom = gestionUser.promptYesNo("Do you want to search the room? (Y/N)");
+
+        if (searchRoom == 'Y' || searchRoom == 'y') {
+            // L'Hero chercher des potions dans la piece
+            hero.searchForPotions(this);
+        }
+        // Demander au Hero s'il veut fouiller le monstre qu'il a tué
+        char searchMonster = gestionUser.promptYesNo("Do you want to search the defeated monster? (Y/N)");
+        if (searchMonster == 'Y' || searchMonster == 'y') {
+            hero.searchForPotions(this.monster);
+        }
+
         System.out.println("La pièce a été purgée de ses éléments impurs");
     }
 
