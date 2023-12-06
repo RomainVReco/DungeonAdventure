@@ -33,4 +33,5 @@ public class Weapon {
     public void setWeaponName(String weaponName) {
         this.weaponName = weaponName;
     }
+
 }

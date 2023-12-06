@@ -1,5 +1,4 @@
 package Weapon.Hero;
-
 import Weapon.Weapon;
 
 public class HeroWeapons extends Weapon {
@@ -19,9 +18,4 @@ public class HeroWeapons extends Weapon {
         this.attackBonus = attackBonus;}
 
     /******METHODES******/
-
-
-
-
-
 }
