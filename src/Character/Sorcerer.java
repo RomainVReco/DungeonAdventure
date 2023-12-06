@@ -15,6 +15,7 @@ public class Sorcerer extends Monster {
      */
     public Sorcerer() {
         s_iNbSorcerInstances +=1;
+        this.setMonsterName("Sorcerer");
         this.setWeapon(new Lightning());
         this.setEffectiveWeaponType("WaterFlask");
         if (Monster.s_iNbSorcerInstances % 3 == 0) {
@@ -22,10 +23,9 @@ public class Sorcerer extends Monster {
         }
     }
 
-
     @Override
     public void hitByPower(ReduceLifePower power) {
-
+        power.dischargeOnTarget(this);
     }
 
 }

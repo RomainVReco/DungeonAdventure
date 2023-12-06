@@ -15,6 +15,7 @@ public class Zombie extends Monster {
      */
     public Zombie() {
         s_iNbZombieInstances += 1;
+        this.setMonsterName("Zombie");
         this.setEffectiveWeaponType("FireArrow");
         this.setWeapon(new Bite());
         if (s_iNbZombieInstances % 5 == 0) {
@@ -24,6 +25,6 @@ public class Zombie extends Monster {
 
     @Override
     public void hitByPower(ReduceLifePower power) {
-
+        power.dischargeOnTarget(this);
     }
 }

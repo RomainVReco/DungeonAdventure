@@ -16,7 +16,8 @@ public class Barbarian extends Monster {
      */
     public Barbarian() {
         s_iNbBarbarianInstances += 1;
-        this.setEffectiveWeaponType("Epée");
+        this.setMonsterName("Barbarian");
+        this.setEffectiveWeaponType("Sword");
         this.setWeapon(new Axe());
         if (Monster.s_iNbBarbarianInstances % 2 == 1) {
             this.setPotion(new HealthPotion());
@@ -25,23 +26,12 @@ public class Barbarian extends Monster {
         }
     }
 
-    @Override
-    public void receiveDamages(int damages) {
-
-    }
-
-    /**
-     * A coder
-     *
-     * @return
-     */
-
     /**
      * A coder
      * @param power
      */
     @Override
     public void hitByPower(ReduceLifePower power) {
-
+        power.dischargeOnTarget(this);
     }
 }

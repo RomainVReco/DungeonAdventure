@@ -22,10 +22,9 @@ public abstract class Character {
 
         return lifePoints;
     }
-
     public void receiveDamages(int damages){
         this.lifePoints -= damages;
-        System.out.println(damages+" dégats infligés. Points de vie restants : "+this.getNbLifePoints());
+        System.out.println(damages+" damage received. Remaining HP : "+this.getNbLifePoints());
     }
 
     public boolean isAlive() {
