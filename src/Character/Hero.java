@@ -3,7 +3,6 @@ package Character;
 
 import Item.Item;
 import Room.Dungeon;
-import Room.Room;
 import Room.Searchable;
 import Weapon.Hero.*;
 import Weapon.ReduceLifePower;
@@ -22,7 +21,10 @@ public class Hero extends Character {
 
     /****** CONSTRUCTEURS ******/
 
-    public Hero(){
+    public Hero(int strength){
+
+        this.strength = strength;
+
         Arrow arrow = new Arrow();
         WaterFlask waterFlask = new WaterFlask();
         Sword sword = new Sword();
@@ -34,6 +36,15 @@ public class Hero extends Character {
         this.arsenal.put("Sword",sword);
         this.arsenal.put("Water Flask", waterFlask);
 
+        /**
+         * Boucle for pour parcourir toutes les valeurs dans l'HashMap
+         * arsenal et appeler la methode 'calculateAttackBonus'
+         * sur chacune d'elle.
+         */
+        for (HeroWeapons weapon : arsenal.values()){
+            weapon.calculateAttackBonus(this.strength);
+        }
+
     }
 
     /******* GETTERS ******/
@@ -42,7 +53,12 @@ public class Hero extends Character {
     public HashMap<String, HeroWeapons> getArsenal() {return arsenal;}
 
     /******* SETTERS ******/
-    public void setStrength(int strength) {this.strength = strength;}
+    public void setStrength(int strength) {
+        this.strength = strength;
+        for (HeroWeapons weapon : arsenal.values()) {
+            weapon.calculateAttackBonus(this.strength);
+        }
+    }
     public void setPower(ReduceLifePower power) {this.power = power;}
     public void setArsenal(HashMap<String, HeroWeapons> arsenal) {this.arsenal = arsenal;}
 
@@ -58,11 +74,9 @@ public class Hero extends Character {
     }
     public void improveHealth(int value){
         this.lifePoints += value;
-
     }
     public void improveStrength(int value){
         this.strength += value;
-
     }
     // Attention à prévoir un retour null, dans le cas où le Searchable a déjà été fouillé
     public void searchForPotions (Searchable searchable){
@@ -79,6 +93,5 @@ public class Hero extends Character {
     public void tryPower(Dungeon dungeon){
 
     }
-
 
 }
