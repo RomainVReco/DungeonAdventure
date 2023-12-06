@@ -7,6 +7,7 @@ import Character.Character;
 public class Weapon {
     String weaponName;
     protected int m_iAttackPoints;
+
     /**
      * Default constructor
      */
@@ -30,7 +31,6 @@ public class Weapon {
         return weaponName;
     }
 
-    public void setWeaponName(String weaponName) {
-        this.weaponName = weaponName;
-    }
+    public void setWeaponName(String weaponName) {this.weaponName = weaponName;}
 }
+

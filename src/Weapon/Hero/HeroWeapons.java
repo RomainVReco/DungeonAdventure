@@ -1,5 +1,5 @@
 package Weapon.Hero;
-
+import Character.Character;
 import Weapon.Weapon;
 
 public class HeroWeapons extends Weapon {
@@ -20,8 +20,21 @@ public class HeroWeapons extends Weapon {
 
     /******METHODES******/
 
+    public void inflictDamage(Character p_TargetCharacter) {
+        int totalAttackPoints = m_iAttackPoints + this.attackBonus;
+        p_TargetCharacter.receiveDamages(totalAttackPoints);
+    }
+    public void calculateAttackBonus(int strength){
+        this.attackBonus = strength * 2;
+    }
+
 
 
 
 
 }
+
+
+
+
+
