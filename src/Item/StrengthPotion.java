@@ -6,6 +6,7 @@ import Character.Hero;
 public class StrengthPotion extends Item {
 
     public StrengthPotion() {
+        this.setItemName("Strength potion");
         this.setValue(20);
     }
 
@@ -14,4 +15,6 @@ public class StrengthPotion extends Item {
         System.out.println("apply effect Strength Potion");
         hero.improveStrength(this.effectValue);
     }
+
+
 }

@@ -52,42 +52,8 @@ class HeroTest {
     void weaponAttackPoint() {
         assertEquals(10, heroTest.getArsenal().get("Arrow").getAttackPoints());
     }
-
-    @Test
-    void getStrength() {
-        fail();
-    }
-
-    @Test
-    void getPower() {
-    }
-
-    @Test
-    void getArsenal() {
-    }
-
-    @Test
-    void setStrength() {
-    }
-
-    @Test
-    void setPower() {
-    }
-
-    @Test
-    void setArsenal() {
-    }
-
     @Test
     void discoverEnnemy() {
-    }
-
-    @Test
-    void improveHealth() {
-    }
-
-    @Test
-    void improveStrength() {
     }
 
     @Test

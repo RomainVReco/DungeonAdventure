@@ -3,25 +3,16 @@ import Character.*;
 import Item.*;
 
 import java.util.HashMap;
-import java.util.stream.Stream;
 
 public class Room implements Searchable {
     Monster monster;
+    MonsterFactory monsterFactory;
     private HashMap<String, Item> setOfItems = new HashMap<>();
     private boolean hasBeenSearched = false;
 
     public Room(int p_iIndex) {
-        if (p_iIndex % 4 == 0 && p_iIndex % 3 == 0) {
-            this.monster = new Barbarian();
-        } else if (p_iIndex % 4 == 0) {
-            this.monster = new Thief();
-        } else if (p_iIndex % 3 == 0) {
-            this.monster = new Troll();
-        } else if (isPrime(p_iIndex)) {
-            this.monster = new Sorcerer();
-        } else {
-            this.monster = new Zombie();
-        }
+        this.monsterFactory = new MonsterFactory();
+        this.monster = this.monsterFactory.createMonster(p_iIndex);
 
         if (p_iIndex % 7 == 0) {
             this.setOfItems.put("Health potion", new HealthPotion());
@@ -31,21 +22,10 @@ public class Room implements Searchable {
         }
     }
 
-    private boolean isPrime(int p_iIndex) {
-        if (p_iIndex == 2)
-            return true;
-        if (p_iIndex % 2 == 0 || p_iIndex < 3)
-            return false;
-        for (int i = 3; i <= Math.pow(p_iIndex, 0.5) + 1; i += 2) {
-            if (p_iIndex % i == 0) return false;
-        }
-        return true;
-    }
-
     /**
      * La méthode enterRoom va déclencher la séquence de combat cf. diagramme de séquence Room fighting management
      *
-     * @param hero : le héros créer à l'initialisation du jeu
+     * @param hero : le héros créé à l'initialisation du jeu
      */
     public void enterRoom(Hero hero) {
         hero.discoverEnnemy(this.monster);
@@ -58,31 +38,33 @@ public class Room implements Searchable {
         // implanter une demande pour fouiller la pièce et/ou le monstre
         hero.searchForPotions(this);
         hero.searchForPotions(this.monster);
-        System.out.println("La pièce a été purgée de ses éléments impurs");
+        System.out.println("The room has been purged");
     }
 
     @Override
     public Item search() {
-        if (!this.hasBeenSearched) {
-            this.hasBeenSearched = true;
-            if (this.setOfItems.size() < 2) {
-                for (Item item : this.setOfItems.values()) {
-                    System.out.println("Vous avez trouvé une potion de " + item.toString());
-                    return item;
+        if (!this.setOfItems.isEmpty()) {
+            if (!this.hasBeenSearched) {
+                this.hasBeenSearched = true;
+                if (this.setOfItems.size() == 1) {
+                    for (Item item : this.setOfItems.values()) {
+                        System.out.println("You found a " + item.toString());
+                        return item;
+                    }
                 }
-            }
-            // Demander au jouer quelle potion il veut
-            else {
-                String x = "";
-                if (x.equals("Health potion")) {
-                    System.out.println("Vous avez choisi une potion de " + this.setOfItems.get("x").toString());
-                    return this.setOfItems.get("x");
-                } else {
-                    System.out.println("Vous avez choisi une potion de " + this.setOfItems.get("x").toString());
-                    return this.setOfItems.get("Strength potion");
+                // Demander au jouer quelle potion il veut
+                else {
+                    String x = "";
+                    if (x.equals("Health potion")) {
+                        System.out.println("You chose a potion of " + this.setOfItems.get("x").toString());
+                        return this.setOfItems.get("x");
+                    } else {
+                        System.out.println("You chose a potion of " + this.setOfItems.get("x").toString());
+                        return this.setOfItems.get("Strength potion");
+                    }
                 }
-            }
-        } else System.out.println("La pièce a déjà été fouillée");
+            } else System.out.println("This room has already been searched");
+        } else System.out.println("This room has no potion");
         return null;
     }
 
