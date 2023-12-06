@@ -35,6 +35,11 @@ public class Dungeon {
         }
         return listeMonstreRoom;
     }
+
+    /**
+     *
+     * @param hero
+     */
     public void greetHeros(Hero hero) {
         System.out.print("Aventurier, bienvenue dans le donjon de la Muerte");
         do {
@@ -42,13 +47,12 @@ public class Dungeon {
             Room roomToEnter = this.listeRoom.get(this.currentRoom);
             roomToEnter.enterRoom(hero);
             this.currentRoom +=1;
-        } while((!hero.isAlive())||(this.currentRoom<this.nombreRoom));
+        } while((hero.isAlive())||(this.currentRoom<this.nombreRoom));
         if (!hero.isAlive()) {
             System.out.println("Le héros est mort. Une nuit de mille ans va s'abattre sur le royaume");
             gameOver();
-            return;
         } else victory();
-//        for (Room room : this.getListeRoom()){
+        //        for (Room room : this.getListeRoom()){
 //            System.out.println("Préparte toi à rentrer dans la pièce n°"+this.getCurrentRoom());
 //            room.enterRoom(hero);
 //
@@ -57,6 +61,9 @@ public class Dungeon {
 //        }
     }
 
+    /**
+     *
+     */
     private void victory() {
     }
 

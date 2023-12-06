@@ -45,7 +45,7 @@ public class Room implements Searchable {
     /**
      * La méthode enterRoom va déclencher la séquence de combat cf. diagramme de séquence Room fighting management
      *
-     * @param hero
+     * @param hero : le héros créer à l'initialisation du jeu
      */
     public void enterRoom(Hero hero) {
         hero.discoverEnnemy(this.monster);
