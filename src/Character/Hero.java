@@ -1,6 +1,9 @@
 package Character;
 
+
+import Item.Item;
 import Room.Dungeon;
+import Room.Room;
 import Room.Searchable;
 import Weapon.Hero.*;
 import Weapon.ReduceLifePower;
@@ -53,19 +56,27 @@ public class Hero extends Character {
         String weaponClassName = monster.getEffectiveWeaponType();
         this.selectWeaponFromArsenal(weaponClassName);
 
-
-
     }
     public void improveHealth(int value){
+        this.lifePoints += value;
 
     }
     public void improveStrength(int value){
+        this.strength += value;
 
     }
     // Attention à prévoir un retour null, dans le cas où le Searchable a déjà été fouillé
-    public void searchForPotions(Searchable searchable){
+    public void searchForPotions (Searchable searchable){
+            Item foundItem = searchable.search();
+            if ( foundItem != null) {
+                foundItem.applyEffect(this);
+            }
+        }
 
-    }
+    /**
+     * Fonction inutile pour le moment
+     * @param dungeon
+     */
     public void tryPower(Dungeon dungeon){
 
     }
