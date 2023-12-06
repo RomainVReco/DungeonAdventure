@@ -15,7 +15,6 @@ public class Weapon {
         m_iAttackPoints = 10;
     }
 
-
     /**
      * @param p_TargetCharacter
      */
