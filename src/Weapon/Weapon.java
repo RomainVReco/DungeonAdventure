@@ -31,6 +31,9 @@ public class Weapon {
         return weaponName;
     }
 
-    public void setWeaponName(String weaponName) {this.weaponName = weaponName;}
+    public void setWeaponName(String weaponName) {
+        this.weaponName = weaponName;
+    }
+
 }
 

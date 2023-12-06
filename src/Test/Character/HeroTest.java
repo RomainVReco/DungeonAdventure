@@ -63,4 +63,5 @@ class HeroTest {
     @Test
     void tryPower() {
     }
+
 }
