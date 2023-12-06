@@ -51,6 +51,7 @@ public abstract class Monster extends Character implements Searchable {
      * @return
      */
     public boolean isWeaponEfficient(Weapon weapon){
+        if weapon
         return false;
     }
 
