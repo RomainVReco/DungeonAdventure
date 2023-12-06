@@ -42,6 +42,14 @@ class MonsterWeaponTest {
     }
 
     @Test
+    void noIncrementCriticalCountDown(){
+        Club club = new Club();
+        club.inflictDamage(new Hero());
+        club.inflictDamage(new Hero());
+        assertEquals(0, club.getCriticalCountDown());
+    }
+
+    @Test
     void inflictDamage() {
     }
 }
