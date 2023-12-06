@@ -45,8 +45,8 @@ public class Dungeon {
         do {
             System.out.println("Préparte toi à rentrer dans la pièce n°"+this.getCurrentRoom());
             Room roomToEnter = this.listeRoom.get(this.currentRoom);
-            roomToEnter.enterRoom(hero);
             this.currentRoom +=1;
+            roomToEnter.enterRoom(hero);
         } while((hero.isAlive())||(this.currentRoom<this.nombreRoom));
         if (!hero.isAlive()) {
             System.out.println("Le héros est mort. Une nuit de mille ans va s'abattre sur le royaume");
