@@ -4,20 +4,51 @@ import Weapon.Weapon;
 
 public class MonsterWeapon extends Weapon {
 
-    public MonsterWeapon() {
-    }
-
     /*** Attributs ***/
     private int criticalCountDown;
     private int maxRoundBeforeCritical;
+    private float bonusDamage;
+
+    public MonsterWeapon() {
+        this.setMaxRoundBeforeCritical(-1);
+    }
+
+    /**
+     * Inflige des dommages au personnage passé en paramètre à partir des dégâts de l'arme -> attackPoints.
+     * Chaque appel de cette fonction fait tourner un compteur de coup critique. Une fois le maximum du
+     * compteur atteint -> maxRoundBeforeCritical, un multiplicateur -> bonusDamage est appliqué.
+     * La formule de caclul des dommages prévoit la gestion décimalisée des dégâts
+     * @param targetCharacter : le personnage qui va subir les dégâts de l'arme
+     */
+    public void inflictDamage(Character targetCharacter) {
+        if (this.criticalCountDown == this.maxRoundBeforeCritical){
+            float baseDamage = Integer.valueOf(this.getAttackPoints()).floatValue();
+            float damageToApply = this.bonusDamage * baseDamage;
+            int finalDamage = Math.round(damageToApply);
+            targetCharacter.receiveDamages(finalDamage);
+            this.setCriticalCountDown(0);
+        }
+        else {
+            targetCharacter.receiveDamages(this.getAttackPoints());
+            incrementCriticalCountDown();
+        }
+    }
+    private void incrementCriticalCountDown(){
+        this.criticalCountDown += 1;
+    }
+
 
     /*** Getters ***/
 
     public int getCriticalCountDown() {
         return criticalCountDown;
     }
-    public int maxRoundBeforeCritical() {
+    public int getMaxRoundBeforeCritical() {
         return maxRoundBeforeCritical;
+    }
+
+    public float getBonusDamage() {
+        return bonusDamage;
     }
 
     /*** Setters ***/
@@ -29,7 +60,7 @@ public class MonsterWeapon extends Weapon {
         this.maxRoundBeforeCritical = maxRoundBeforeCritical;
     }
 
-    public void inflictDamage(Character TargetCharacter) {
-        super.inflictDamage((Character) TargetCharacter);
+    public void setBonusDamage(float bonusDamage) {
+        this.bonusDamage = bonusDamage;
     }
 }
