@@ -7,6 +7,7 @@ import Room.Room;
 import Room.Searchable;
 import Weapon.Hero.*;
 import Weapon.ReduceLifePower;
+import Weapon.Weapon;
 
 import java.util.HashMap;
 
@@ -22,7 +23,10 @@ public class Hero extends Character {
 
     /****** CONSTRUCTEURS ******/
 
-    public Hero(){
+    public Hero(int strength){
+
+        this.strength = strength;
+
         Arrow arrow = new Arrow();
         WaterFlask waterFlask = new WaterFlask();
         Sword sword = new Sword();
@@ -33,6 +37,10 @@ public class Hero extends Character {
         this.arsenal.put("Spear", spear);
         this.arsenal.put("Sword",sword);
         this.arsenal.put("Water Flask", waterFlask);
+
+        for (HeroWeapons weapon : arsenal.values()){
+            weapon.calculateAttackBonus(this.strength);
+        }
 
     }
 
@@ -79,6 +87,5 @@ public class Hero extends Character {
     public void tryPower(Dungeon dungeon){
 
     }
-
 
 }

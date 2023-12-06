@@ -19,9 +19,13 @@ public class HeroWeapons extends Weapon {
         this.attackBonus = attackBonus;}
 
     /******METHODES******/
-
-
-
-
+public void calculateAttackBonus(int strength){
+    this.attackBonus = strength * 2;
+}
 
 }
+
+
+
+
+
