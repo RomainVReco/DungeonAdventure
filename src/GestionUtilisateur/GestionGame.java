@@ -1,8 +1,8 @@
 package GestionUtilisateur;
 
-public class MainGame {
+public class GestionGame {
     public static void main(String[] args) {
-        UserInput userInput = new UserInput();
+        GestionUser userInput = new GestionUser();
 
         String playerName = userInput.promptString("Enter your name");
         System.out.println("Welcome, " + playerName + "!");

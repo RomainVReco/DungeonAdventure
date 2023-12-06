@@ -2,10 +2,10 @@ package GestionUtilisateur;
 
 import java.util.Scanner;
 
-public class UserInput {
+public class GestionUser {
     private Scanner scanner;
 
-    public UserInput() {
+    public GestionUser() {
         this.scanner = new Scanner(System.in);
     }
 
