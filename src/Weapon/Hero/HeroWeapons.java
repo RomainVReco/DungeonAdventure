@@ -2,23 +2,29 @@ package Weapon.Hero;
 
 import Weapon.Weapon;
 
-/******ATTRIBUTS******/
 public class HeroWeapons extends Weapon {
+    String weaponName;
     private int attackBonus;
 
-/******CONSTRUCTEUR******/
+    /******CONSTRUCTEUR******/
     public HeroWeapons(){
     }
 
 
-/*****GETTERS******/
+    /*****GETTERS******/
     public int getAttackBonus() {return attackBonus;}
+    public String getWeaponName() {
+        return weaponName;
+    }
 
-/*****SETTERS******/
+    /*****SETTERS******/
     public void setAttackBonus(int attackBonus) {
         this.attackBonus = attackBonus;}
+    public void setWeaponName(String weaponName) {
+        this.weaponName = weaponName;
+    }
 
-/******METHODES******/
+    /******METHODES******/
 
 
 
