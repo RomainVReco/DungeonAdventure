@@ -33,6 +33,10 @@ public class MonsterWeapon extends Weapon {
             incrementCriticalCountDown();
         }
     }
+
+    /**
+     *
+     */
     private void incrementCriticalCountDown(){
         this.criticalCountDown += 1;
     }
