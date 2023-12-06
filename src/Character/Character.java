@@ -22,13 +22,17 @@ public abstract class Character {
 
         return lifePoints;
     }
+
+    /**
+     * Diminue les points de vie du personnage, du nombre de points passer en paramètre
+     * @param damages : nombre entier représentant le nombre de dégâts que le personnage va subir
+     */
     public void receiveDamages(int damages){
         this.lifePoints -= damages;
         System.out.println(damages+" damage received. Remaining HP : "+this.getNbLifePoints());
     }
 
     public boolean isAlive() {
-
         return (this.getNbLifePoints() > 0);
     }
 

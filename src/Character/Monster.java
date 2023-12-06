@@ -27,7 +27,7 @@ public abstract class Monster extends Character implements Searchable {
             this.setSearchDone(true);
             return this.getPotion();
         } else {
-            System.out.println("Cette engeance de la nature a déjà été fouillée");
+            System.out.println("The monster's corpse has already been searched");
             return null;
         }
     }
@@ -36,6 +36,15 @@ public abstract class Monster extends Character implements Searchable {
     public void receiveDamages(int damages){
         this.lifePoints -= damages;
         System.out.println(damages+" damage received. The "+this.getMonsterName()+" has "+this.getNbLifePoints()+" HP remaining.");
+    }
+
+    /**
+     * A partir de l'arme sélectionnée par le héro, vérifie si elle peut infliger des dégats au monstre visé
+     * @param weapon : arme sléectionnée par le héro
+     * @return true si l'arme est efficace contre ce monste, false dans le cas contraire
+     */
+    public boolean isWeaponEfficient(Weapon weapon){
+        return weapon.getWeaponName().equals(this.effectiveWeaponType);
     }
 
     public String getEffectiveWeaponType() {
@@ -68,15 +77,6 @@ public abstract class Monster extends Character implements Searchable {
 
     public void setMonsterName(String monsterName) {
         this.monsterName = monsterName;
-    }
-
-    /**
-     * A coder
-     * @param weapon
-     * @return
-     */
-    public boolean isWeaponEfficient(Weapon weapon){
-        return weapon.getWeaponName().equals(this.effectiveWeaponType);
     }
 
     /**
