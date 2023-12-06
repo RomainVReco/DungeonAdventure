@@ -28,7 +28,6 @@ public class Hero extends Character {
         Sword sword = new Sword();
         Spear spear = new Spear();
         FireArrow fireArrow = new FireArrow();
-
         this.arsenal.put("Arrow", arrow);
         this.arsenal.put("Fire Arrow",fireArrow);
         this.arsenal.put("Spear", spear);

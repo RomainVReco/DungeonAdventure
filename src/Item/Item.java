@@ -14,5 +14,7 @@ public abstract class Item {
         this.effectValue = value;
     }
 
-
+    public int getEffectValue() {
+        return effectValue;
+    }
 }
