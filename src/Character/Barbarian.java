@@ -32,15 +32,6 @@ public class Barbarian extends Monster {
 
     /**
      * A coder
-     * @param targetCharacter
-     */
-    @Override
-    public void attack(Character targetCharacter) {
-
-    }
-
-    /**
-     * A coder
      *
      * @return
      */
