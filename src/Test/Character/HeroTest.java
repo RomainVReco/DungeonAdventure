@@ -52,4 +52,16 @@ class HeroTest {
     void weaponAttackPoint() {
         assertEquals(10, heroTest.getArsenal().get("Arrow").getAttackPoints());
     }
+    @Test
+    void discoverEnnemy() {
+    }
+
+    @Test
+    void searchForPotions() {
+    }
+
+    @Test
+    void tryPower() {
+    }
+
 }

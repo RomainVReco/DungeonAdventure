@@ -53,18 +53,36 @@ class DungeonTest {
     }
 
     @Test
-    void getRoom() {
-    }
-
-    @Test
-    void ajouterRoom() {
-    }
-
-    @Test
-    void greetHeros() {
-    }
-
-    @Test
     void getAllMonstersFromDungeon() {
+        Dungeon dungeonTest = new Dungeon(25);
+        assertEquals(25,dungeonTest.getListeMonstres().size());
+        int nbZombie = 0;
+        int nbSorcer = 0;
+        int nbBarbarian = 0;
+        int nbTroll = 0;
+        int nbThief = 0;
+        for (Monster m : dungeonTest.getListeMonstres()){
+            if (m.getClass() == Zombie.class ) {
+                nbZombie += 1;
+            }
+            else if (m.getClass() == Sorcerer.class) {
+                nbSorcer += 1;
+            }
+            else if (m.getClass() == Troll.class) {
+                nbTroll += 1;
+            }
+            else if (m.getClass() == Thief.class) {
+                nbThief +=1;
+            }
+            else nbBarbarian +=1;
+        }
+        assertEquals(2, nbBarbarian);
+        assertEquals(8, nbSorcer);
+        assertEquals(6, nbTroll);
+        assertEquals(4, nbThief);
+        assertEquals(5, nbZombie);
+
+
+
     }
 }
