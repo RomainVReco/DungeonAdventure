@@ -1,15 +1,13 @@
 package Test.Event;
 
-import Event.EndGameEvent;
+import Event.GameEvent;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class EndGameEventTest {
 
     @Test
     void gameOver() {
-        EndGameEvent event = new EndGameEvent();
+        GameEvent event = new GameEvent();
         event.victory();
     }
 }
