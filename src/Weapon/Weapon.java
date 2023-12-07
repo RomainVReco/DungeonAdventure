@@ -2,7 +2,11 @@ package Weapon;
 import Character.Character;
 
 /**
+ * La classe Weapon représente le modèle générique pour une arme dans le jeu.
+ * Cette classe contient des informations de base sur l'arme, comme son nom, et ses points d'attaque,
+ * et elle fournit une fonctionnalité pour infliger des dégats à sa cible.
  *
+ * @author Equipe
  */
 public class Weapon {
     String weaponName;
