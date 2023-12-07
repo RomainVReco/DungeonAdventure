@@ -7,6 +7,7 @@ import Item.*;
 import Weapon.Weapon;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class Room implements Searchable {
     Monster monster;
@@ -33,34 +34,33 @@ public class Room implements Searchable {
      * @param hero : le héros créé à l'initialisation du jeu
      */
     public void enterRoom(Hero hero) {
-        // Notifier l'hero de la presence d'un monstre dans la piece
         hero.discoverEnnemy(this.monster);
-
-        // Continuer le combat jusqu'à ce que le monstre ou l'hero soit mort
+        // Continuer le combat jusqu'à ce que le monstre ou le hero soit mort
         while (this.monster.isAlive() && hero.isAlive()) {
-            // le monstre attaque l'hero
-              this.monster.attack(hero);
-
+            System.out.println("The monster is attacking you !");
+            this.monster.attack(hero);
             // verifier si l'hero est encore en vie avant de lui permettre de contre-attaquer
             if (hero.isAlive()) {
-                System.out.println();
                 String weaponChoice = gestionUser.promptString("Which weapon would you like to use to attack the monster?").toLowerCase();
-                // faut revoir la declarisation des armes dans hero --- gerer l'erreur
-                Weapon weaponToCampare = hero.getArsenal().get(weaponChoice);
-                if (monster.isWeaponEfficient(weaponToCampare))
-                    // L'hero counter-attaque le monstre
-                    hero.attack(this.monster);
-                else {
-                    System.out.println("the weapon selected is not the efficient one");
-                    System.out.println("As a result of that,The Hero loses his turn,and The Monster throws another Attack");
-
-                    // System.out.println("Hero responds to the attack with its " + hero.getWeapon() +
-                    //" and inflicts " + heroAttackDamage + " damage.");
-                    //System.out.println(this.monster.getMonsterName() + " has been hit and has now " + this.monster.getHealth() + " life points left");
+                try {
+                    Weapon weaponToCompare = hero.getArsenal().get(weaponChoice);
+                    if (monster.isWeaponEfficient(weaponToCompare)) {
+                        System.out.println("The hero is attacking the monster");
+                        hero.attack(this.monster);
+                    }
+                    else {
+                        System.out.println("The weapon selected has no effect !");
+                        System.out.println("As a result of that, the Hero loses his turn,and The Monster throws another Attack");
+                        System.out.println("Keep in mind that the only effective against this spawn of Hell is "+monster.getEffectiveWeaponType());
+                    }
+                } catch (NullPointerException e){
+                    System.out.println("You donkey ! This thing is not part of the Hero arsenal !");
+                    System.out.println("You can chose from this set : ");
+                    for (String weaponName : hero.getArsenal().keySet()){
+                        System.out.print(weaponName+" ");
+                    } 
                 }
-
-                return;
-            }
+            } else return;
         }
 
         // Apres le combat, demander au Hero s'il veut fouiller la piece
