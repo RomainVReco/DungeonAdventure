@@ -2,6 +2,8 @@ package Event;
 
 import GestionUtilisateur.GestionUser;
 import Room.Dungeon;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class GameEvent {
 
@@ -47,8 +49,15 @@ public class GameEvent {
         return this.gestionUser.promptYesNo("Would you like to play again ? (Y/N) ");
     }
 
-    public void SaveGame(){
-        
+    public void SaveGame(SaveState newSave) {
+        String jsonString = "";
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            jsonString = objectMapper.writeValueAsString(newSave);
+        } catch (JsonProcessingException e) {
+            System.out.println("Echec transposition JSON");
+        }
+        System.out.println(jsonString);
     }
 
 }
