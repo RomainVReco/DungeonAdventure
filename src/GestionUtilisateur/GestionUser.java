@@ -1,48 +1,30 @@
 package GestionUtilisateur;
 
+import java.io.ByteArrayInputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class GestionUser {
-    private Scanner scanner;
 
     public GestionUser() {
-        this.scanner = new Scanner(System.in);
     }
 
     public String promptString(String prompt) {
-        System.out.print(prompt + ": ");
-        return scanner.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+        return input;
     }
 
-    public char promptChar(String prompt) {
-        char userInput = '\0';
+    public String promptYesNo(String prompt) {
+        Scanner scanner = new Scanner(System.in);
+        String userInput = "";
         boolean validInput = false;
-
-        do {
-            System.out.print(prompt + ": ");
-            String input = scanner.nextLine();
-
-            if (input.length() == 1) {
-                userInput = input.charAt(0);
-                validInput = true;
-            } else {
-                System.out.println("Invalid input. Please enter a single character.");
-            }
-        } while (!validInput);
-
-        return userInput;
-    }
-
-    public char promptYesNo(String prompt) {
-        char userInput = '\0';
-        boolean validInput = false;
-
         do {
             System.out.print(prompt + " (Y/N): ");
             String input = scanner.nextLine().toUpperCase();
 
             if (input.length() == 1 && (input.equals("Y") || input.equals("N"))) {
-                userInput = input.charAt(0);
+                userInput = input;
                 validInput = true;
             } else {
                 System.out.println("Invalid input. Please enter Y or N.");
@@ -52,7 +34,4 @@ public class GestionUser {
         return userInput;
     }
 
-    public void closeScanner() {
-        scanner.close();
-    }
 }
