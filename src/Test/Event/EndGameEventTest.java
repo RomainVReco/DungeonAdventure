@@ -2,6 +2,7 @@ package Test.Event;
 
 import Event.GameEvent;
 import Event.SaveState;
+import GestionUtilisateur.GestionUser;
 import org.junit.jupiter.api.Test;
 import Character.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -54,6 +55,8 @@ class EndGameEventTest {
     void hashmap(){
         Hero hero = new Hero();
         System.out.println(hero.getArsenal().get("opinel"));
+        GestionUser gestionUser = new GestionUser();
+        String weaponChoice = gestionUser.promptString("Which weapon would you like to use to attack the monster?").toLowerCase();
     }
 
 }

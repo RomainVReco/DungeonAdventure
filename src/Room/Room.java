@@ -5,9 +5,7 @@ import Character.Hero;
 import GestionUtilisateur.GestionUser;
 import Item.*;
 import Weapon.Weapon;
-
 import java.util.HashMap;
-import java.util.Set;
 
 public class Room implements Searchable {
     Monster monster;
@@ -42,6 +40,7 @@ public class Room implements Searchable {
             // verifier si l'hero est encore en vie avant de lui permettre de contre-attaquer
             if (hero.isAlive()) {
                 String weaponChoice = gestionUser.promptString("Which weapon would you like to use to attack the monster?").toLowerCase();
+                if (weaponChoice.isEmpty());
                 try {
                     Weapon weaponToCompare = hero.getArsenal().get(weaponChoice);
                     if (monster.isWeaponEfficient(weaponToCompare)) {
@@ -58,22 +57,22 @@ public class Room implements Searchable {
                     System.out.println("You can chose from this set : ");
                     for (String weaponName : hero.getArsenal().keySet()){
                         System.out.print(weaponName+" ");
-                    } 
+                    }
                 }
             } else return;
         }
 
         // Apres le combat, demander au Hero s'il veut fouiller la piece
-        char searchRoom = gestionUser.promptYesNo("Do you want to search the room? (Y/N)");
+        String searchRoom = gestionUser.promptYesNo("Do you want to search the room? (Y/N)");
 
-        if (searchRoom == 'Y' || searchRoom == 'y') {
+        if (searchRoom.equals("Y")) {
             // L'Hero chercher des potions dans la piece
             hero.searchForPotions(this);
         }
 
         // Demander au Hero s'il veut fouiller le monstre qu'il a tué
-        char searchMonster = gestionUser.promptYesNo("Do you want to search the defeated monster? (Y/N)");
-        if (searchMonster == 'Y' || searchMonster == 'y') {
+        String searchMonster = gestionUser.promptYesNo("Do you want to search the defeated monster? (Y/N)");
+        if (searchMonster.equals("Y")) {
             hero.searchForPotions(this.monster);
         }
 

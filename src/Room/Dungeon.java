@@ -45,7 +45,7 @@ public class Dungeon {
      * @param hero
      */
     public void greetHeros(Hero hero) {
-        char playerChoice;
+        String playerChoice;
         System.out.print("Aventurier, bienvenue dans le donjon de la Muerte");
         do {
             System.out.println("Préparte toi à rentrer dans la pièce n°"+this.getCurrentRoom());
@@ -60,9 +60,9 @@ public class Dungeon {
             playerChoice = this.endGameEvent.victory();
             }
         switch (playerChoice){
-            case 'Y':
+            case "Y":
                 new Dungeon(ConfigDungeon.getNumberOfRoomTest());
-            case 'N':
+            case "N":
                 System.exit(9999);
         }
         //        for (Room room : this.getListeRoom()){

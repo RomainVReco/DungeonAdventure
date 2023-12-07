@@ -18,7 +18,7 @@ public class GameEvent {
         new Dungeon(ConfigDungeon.getNumberOfRoomTest());
     }
 
-    public char gameOver(){
+    public String gameOver(){
         String defeatEndGameText = "In the echoing depths of the foreboding dungeon, a haunting silence descends as the \n" +
                 "valiant hero lies fallen, defeated by the malevolent forces that lurk within. The once-hopeful mission \n" +
                 "to purge the evil that gripped the darkened halls has ended in tragedy. \n" +
@@ -37,7 +37,7 @@ public class GameEvent {
 
     }
 
-    public char victory(){
+    public String victory(){
         String victoryEndGameText = "In the dimly lit chambers of the ominous dungeon, a triumphant hush falls. The valiant hero,\n" +
                 "armed with unwavering courage and a gleaming blade, has vanquished every monstrous foe that dared to roam the echoing halls.\n" +
 
