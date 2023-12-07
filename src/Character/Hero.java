@@ -115,6 +115,8 @@ public class Hero extends Character {
 
     public void discoverEnnemy(Monster monster){
         String weaponClassName = monster.getEffectiveWeaponType();
+        System.out.println("Oh ! A wild "+monster.getMonsterName()+" appears !");
+        System.out.println("This abomination is sensitive to "+monster.getEffectiveWeaponType());
         this.selectWeaponFromArsenal(weaponClassName);
     }
     public void improveHealth(int value){

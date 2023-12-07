@@ -50,4 +50,10 @@ class EndGameEventTest {
         new GameEvent().saveGame(save);
     }
 
+    @Test
+    void hashmap(){
+        Hero hero = new Hero();
+        System.out.println(hero.getArsenal().get("opinel"));
+    }
+
 }
