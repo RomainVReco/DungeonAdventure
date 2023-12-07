@@ -115,8 +115,6 @@ public class Hero extends Character {
 
     public void discoverEnnemy(Monster monster){
         String weaponClassName = monster.getEffectiveWeaponType();
-        System.out.println("Oh ! A wild "+monster.getMonsterName()+" appears !");
-        System.out.println("This abomination is sensitive to "+monster.getEffectiveWeaponType());
         this.selectWeaponFromArsenal(weaponClassName);
     }
     public void improveHealth(int value){
@@ -128,7 +126,7 @@ public class Hero extends Character {
     // Attention à prévoir un retour null, dans le cas où le Searchable a déjà été fouillé
     public void searchForPotions (Searchable searchable){
             Item foundItem = searchable.search();
-            if ( foundItem != null) {
+            if (foundItem != null) {
                 foundItem.applyEffect(this);
             }
         }

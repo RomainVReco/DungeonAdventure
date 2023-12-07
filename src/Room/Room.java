@@ -33,17 +33,23 @@ public class Room implements Searchable {
      */
     public void enterRoom(Hero hero) {
         hero.discoverEnnemy(this.monster);
-        // Continuer le combat jusqu'à ce que le monstre ou le hero soit mort
+        System.out.println("Oh ! A wild "+monster.getMonsterName()+" appears !");
+        System.out.println("This abomination is sensitive to "+monster.getEffectiveWeaponType());
+
         while (this.monster.isAlive() && hero.isAlive()) {
-            System.out.println("The monster is attacking you !");
+            System.out.println("The monster is attacking !");
             this.monster.attack(hero);
-            // verifier si l'hero est encore en vie avant de lui permettre de contre-attaquer
+
             if (hero.isAlive()) {
                 String weaponChoice = gestionUser.promptString("Which weapon would you like to use to attack the monster?").toLowerCase();
-                if (weaponChoice.isEmpty());
-                try {
                     Weapon weaponToCompare = hero.getArsenal().get(weaponChoice);
-                    if (monster.isWeaponEfficient(weaponToCompare)) {
+                    if (weaponToCompare == null) {
+                        System.out.println("You donkey ! This thing is not part of the Hero arsenal !");
+                        System.out.println("You can chose from this set : ");
+                        for (String weaponName : hero.getArsenal().keySet()){
+                            System.out.print(weaponName+" ");
+                        }
+                    } else if (monster.isWeaponEfficient(weaponToCompare)) {
                         System.out.println("The hero is attacking the monster");
                         hero.attack(this.monster);
                     }
@@ -52,38 +58,28 @@ public class Room implements Searchable {
                         System.out.println("As a result of that, the Hero loses his turn,and The Monster throws another Attack");
                         System.out.println("Keep in mind that the only effective against this spawn of Hell is "+monster.getEffectiveWeaponType());
                     }
-                } catch (NullPointerException e){
-                    System.out.println("You donkey ! This thing is not part of the Hero arsenal !");
-                    System.out.println("You can chose from this set : ");
-                    for (String weaponName : hero.getArsenal().keySet()){
-                        System.out.print(weaponName+" ");
-                    }
-                }
-            } else return;
-        }
+                } else return;
+            }
 
         // Apres le combat, demander au Hero s'il veut fouiller la piece
         String searchRoom = gestionUser.promptYesNo("Do you want to search the room? (Y/N)");
 
         if (searchRoom.equals("Y")) {
-            // L'Hero chercher des potions dans la piece
             hero.searchForPotions(this);
         }
 
-        // Demander au Hero s'il veut fouiller le monstre qu'il a tué
         String searchMonster = gestionUser.promptYesNo("Do you want to search the defeated monster? (Y/N)");
         if (searchMonster.equals("Y")) {
             hero.searchForPotions(this.monster);
         }
 
-        System.out.println("La pièce a été purgée de ses éléments impurs");
+        System.out.println("The room has been purged from the unholy creatures");
     }
 
     /**
      * la méthode search va déclencher la recherche de potion
      * @return
      */
-
     @Override
     public Item search() {
         if (!this.setOfItems.isEmpty()) {
@@ -97,10 +93,10 @@ public class Room implements Searchable {
                 }
                 // Demander au jouer quelle potion il veut
                 else {
-                    String x = "";
-                    if (x.equals("Health potion")) {
+                    String potionChoice = gestionUser.promptYesNo("Do you want the Health potion[Y] or the Strength potion[N] search the defeated monster ?");
+                    if (potionChoice.equals("Y")) {
                         System.out.println("You chose a potion of " + this.setOfItems.get("x").toString());
-                        return this.setOfItems.get("x");
+                        return this.setOfItems.get("Health potion");
                     } else {
                         System.out.println("You chose a potion of " + this.setOfItems.get("x").toString());
                         return this.setOfItems.get("Strength potion");
