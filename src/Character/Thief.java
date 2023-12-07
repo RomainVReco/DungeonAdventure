@@ -1,12 +1,15 @@
 package Character;
 
 import Item.HealthPotion;
-import Item.Item;
 import Weapon.Monster.Dagger;
 import Weapon.ReduceLifePower;
 
 /**
- *
+ *La classe Thief represente un type specifique de monstre dans le jeu,
+ *un voleur. Cette classe definit les attributs et le comportement propre au voleur.
+ * Son nom, son arme, et sa vulnérabilité à un type d'arme.
+ * En fonction du nombre d'instances de Thief creees, on peut retrouver une
+ * healthPotion sur lui
  */
 public class Thief extends Monster {
 
