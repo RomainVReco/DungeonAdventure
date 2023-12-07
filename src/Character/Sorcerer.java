@@ -17,7 +17,7 @@ public class Sorcerer extends Monster {
         s_iNbSorcerInstances +=1;
         this.setMonsterName("Sorcerer");
         this.setWeapon(new Lightning());
-        this.setEffectiveWeaponType("WaterFlask");
+        this.setEffectiveWeaponType("water flask");
         if (Monster.s_iNbSorcerInstances % 3 == 0) {
             this.setPotion(new HealthPotion());
         }

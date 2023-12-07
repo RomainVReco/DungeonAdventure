@@ -15,7 +15,7 @@ public class Thief extends Monster {
         s_iNbThiefInstances += 1;
         this.setMonsterName("Thief");
         this.setWeapon(new Dagger());
-        this.setEffectiveWeaponType("Arrow"); //this.effectiveWeaponType = "Arrow";
+        this.setEffectiveWeaponType("arrow"); //this.effectiveWeaponType = "Arrow";
         if (Monster.s_iNbThiefInstances % 6 == 1) {
             this.setPotion(new HealthPotion());
         }

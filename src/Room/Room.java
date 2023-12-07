@@ -1,5 +1,7 @@
 package Room;
-import Character.*;
+import Character.Monster;
+import Character.MonsterFactory;
+import Character.Hero;
 import GestionUtilisateur.GestionUser;
 import Item.*;
 import Weapon.Weapon;
@@ -8,14 +10,13 @@ import java.util.HashMap;
 
 public class Room implements Searchable {
     Monster monster;
-    MonsterFactory monsterFactory;
+    MonsterFactory monsterFactory = new MonsterFactory();;
     private HashMap<String, Item> setOfItems = new HashMap<>();
     private boolean hasBeenSearched = false;
 
     GestionUser gestionUser = new GestionUser();
 
     public Room(int p_iIndex) {
-        this.monsterFactory = new MonsterFactory();
         this.monster = this.monsterFactory.createMonster(p_iIndex);
 
         if (p_iIndex % 7 == 0) {
@@ -57,7 +58,6 @@ public class Room implements Searchable {
                     //" and inflicts " + heroAttackDamage + " damage.");
                     //System.out.println(this.monster.getMonsterName() + " has been hit and has now " + this.monster.getHealth() + " life points left");
                 }
-
 
                 return;
             }

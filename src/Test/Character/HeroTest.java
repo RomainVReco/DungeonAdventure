@@ -1,8 +1,9 @@
 package Test.Character;
 
+import Event.ConfigDungeon;
 import Weapon.Hero.*;
 import org.junit.jupiter.api.Test;
-import Character.Hero;
+import Character.*;
 
 import java.util.HashMap;
 
@@ -44,16 +45,28 @@ class HeroTest {
 
     @Test
     void heroStrength(){
-        assertEquals(0, heroTest.getStrength());
-            assertNull(heroTest.getWeapon());
+        assertEquals(ConfigDungeon.getConfig(), heroTest.getStrength());
     }
 
     @Test
     void weaponAttackPoint() {
         assertEquals(10, heroTest.getArsenal().get("Arrow").getAttackPoints());
     }
+
     @Test
     void discoverEnnemy() {
+        Barbarian barbarian = new Barbarian();
+        heroTest.discoverEnnemy(barbarian);
+        assertEquals(heroTest.getWeapon().getWeaponName(), barbarian.getEffectiveWeaponType());
+        assertNotEquals(heroTest.getArsenal().get("arrow").getWeaponName(), barbarian.getEffectiveWeaponType());
+    }
+
+    @Test
+    void inflictDamages(){
+        Barbarian barbarian = new Barbarian();
+        heroTest.discoverEnnemy(barbarian);
+        heroTest.getWeapon().inflictDamage(barbarian);
+        assertEquals(-12, barbarian.getNbLifePoints());
     }
 
     @Test
