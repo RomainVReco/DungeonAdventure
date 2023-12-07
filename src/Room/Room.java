@@ -2,6 +2,8 @@ package Room;
 import Character.*;
 import GestionUtilisateur.GestionUser;
 import Item.*;
+import Weapon.Weapon;
+
 import java.util.HashMap;
 import java.util.stream.Stream;
 
@@ -50,24 +52,25 @@ public class Room implements Searchable {
      * @param hero : le héros créer à l'initialisation du jeu
      */
     public void enterRoom(Hero hero) {
-        // Notify the hero about the discovery of an enemy in the room
+        // Notifier l'hero de la presence d'un monstre dans la piece
         hero.discoverEnnemy(this.monster);
 
-        // Continue the battle until either the monster or the hero is defeated
+        // Continuer le combat jusqu'à ce que le monstre ou l'hero soit mort
         while (this.monster.isAlive() && hero.isAlive()) {
-            // The monster attacks the hero
+            // le monstre attaque l'hero
               this.monster.attack(hero);
-            System.out.println(this.monster.getMonsterName() + " attacks the hero with " + this.monster.getWeapon() +
-                    " and inflicts " + monsterAttackDamage + " damage.");
-            System.out.println("Hero has been hit and has now " + hero.getHealth() + " life points left");
 
-            // Check if the hero is still alive before allowing the hero to counter-attack
+            // verifier si l'hero est encore en vie avant de lui permettre de contre-attaquer
             if (hero.isAlive()) {
+                System.out.println();
+                String weaponChoice = gestionUser.promptString("Which weapon would you like to use to attack the monster?");
+
+            if (weaponChoice)
                 // L'hero counter-attaque le monstre
                 hero.attack(this.monster);
-                System.out.println("Hero responds to the attack with its " + hero.getWeapon() +
-                        " and inflicts " + heroAttackDamage + " damage.");
-                System.out.println(this.monster.getMonsterName() + " has been hit and has now " + this.monster.getHealth() + " life points left");
+               // System.out.println("Hero responds to the attack with its " + hero.getWeapon() +
+                        //" and inflicts " + heroAttackDamage + " damage.");
+                //System.out.println(this.monster.getMonsterName() + " has been hit and has now " + this.monster.getHealth() + " life points left");
             } else {
 
                 return;
@@ -89,6 +92,11 @@ public class Room implements Searchable {
 
         System.out.println("La pièce a été purgée de ses éléments impurs");
     }
+
+    /**
+     * la méthode search va déclencher la recherche de potion
+     * @return
+     */
 
     @Override
     public Item search() {
