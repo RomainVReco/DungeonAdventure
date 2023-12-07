@@ -2,6 +2,14 @@ package Item;
 import Character.Hero;
 
 /**
+ *La classe abstraite Item represente le modele pour la creation de divers types d'items dans un jeu
+ * qui peuvent avoir un effet sur les personnages, notamment le hero.
+ * il s'agit ici des potions.
+ * Cette classe definit une base avec un nom et une valeur d'effet.
+ *
+ * @author Walid, Romain, Godwill
+ *
+ *
  *
  */
 public abstract class Item {

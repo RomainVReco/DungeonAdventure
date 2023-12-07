@@ -3,16 +3,16 @@ import Character.Character;
 import Weapon.Weapon;
 
 /**
- * La classe HeroWeapons extends de la classe Weapon.
- * Elle represente les différentes armes attribuables au héros dans le jeu, et
- * ajoute un bonus d'attaque basé sur la force du héros.
+ * La classe HeroWeapons est une extension de la classe Weapon.
+ * Elle represente les differentes armes attribuables au héros dans le jeu, et
+ * ajoute un bonus d'attaque basé sur la force du heros.
  *
  *  <p>
  *  Cette méthode surcharge inflictDamage pour inclure le calcule du bonus d'attaque
- *  dans le calcul des dégats infligés au monster (le personnage cicle)
+ *  dans le calcul des degats infliges au monster (le personnage cicle)
  *  </p>
  *
- * @author Equipe
+ * @author Walid, Romain, Godwill
  *
  */
 public class HeroWeapons extends Weapon {

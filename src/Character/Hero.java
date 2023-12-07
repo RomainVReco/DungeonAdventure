@@ -12,13 +12,13 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * La classe Hero represente le personnage héroïque du jeu.
- * Elle gère les caractéristiques comme la force du héros, ses pouvoirs,
+ * La classe Hero represente le personnage heroïque du jeu.
+ * Elle gere les caracteristiques comme la force du heros, ses pouvoirs,
  * et son arsenal d'armes.
- * Via cette classe le héros peut aussi intéragir avec certains éléments du jeu,
- * telles que les potions à rechercher ou encore les monstres.
+ * Via cette classe le heros peut aussi interagir avec certains elements du jeu,
+ * telles que les potions a rechercher ou encore les monstres.
  *
- * @author Equipe
+ * @author Walid, Romain, Godwill
  *
  */
 public class Hero extends Character {
