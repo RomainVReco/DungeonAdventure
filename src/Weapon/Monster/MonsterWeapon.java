@@ -2,6 +2,9 @@ package Weapon.Monster;
 import Character.Character;
 import Weapon.Weapon;
 
+/**
+ *
+ */
 public class MonsterWeapon extends Weapon {
 
     /*** Attributs ***/
@@ -22,6 +25,7 @@ public class MonsterWeapon extends Weapon {
      * pas incrémentée
      * @param targetCharacter : le personnage qui va subir les dégâts de l'arme
      */
+    @Override
     public void inflictDamage(Character targetCharacter) {
         if (this.maxRoundBeforeCritical !=-1 ){
             incrementCriticalCountDown();

@@ -10,6 +10,7 @@ public class HealthPotion extends Item {
      * Default constructor
      */
     public HealthPotion() {
+        this.setItemName("Health potion");
         this.setValue(10);
     }
 

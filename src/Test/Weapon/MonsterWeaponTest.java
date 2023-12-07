@@ -1,6 +1,5 @@
 package Test.Weapon;
 
-import Weapon.Hero.Arrow;
 import Weapon.Monster.Club;
 import org.junit.jupiter.api.Test;
 import Character.*;

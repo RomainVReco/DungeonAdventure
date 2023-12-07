@@ -26,4 +26,8 @@ public final class Config {
         return arsenal;
     }
 
+    private void createJSON() {
+
+    }
+
 }
