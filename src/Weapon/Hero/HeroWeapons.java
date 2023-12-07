@@ -19,7 +19,7 @@ public class HeroWeapons extends Weapon {
         this.attackBonus = attackBonus;}
 
     /******METHODES******/
-
+    @Override
     public void inflictDamage(Character p_TargetCharacter) {
         int totalAttackPoints = m_iAttackPoints + this.attackBonus;
         p_TargetCharacter.receiveDamages(totalAttackPoints);

@@ -11,7 +11,7 @@ public class Spear extends HeroWeapons /*Weapon.Hero.HeroWeapons*/ {
      * Default constructor
      */
     public Spear() {
-        this.setWeaponName("Spear");
+        this.setWeaponName("spear");
     }
 
 }
