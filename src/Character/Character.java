@@ -17,8 +17,10 @@ public abstract class Character {
     }
 
     public int getNbLifePoints(){
-
         return lifePoints;
+    }
+    public void setLifePoints(int lifePoints) {
+        this.lifePoints = lifePoints;
     }
 
     /**
