@@ -1,8 +1,1 @@
-{
-	"heroName": "Bob",
-	"numberOfSlayedMonsters": 99,
-	"healthRemaining": 99,
-	"currentStrength": 99,
-	"potionRemaining": 10,
-	"totalScore": 9999
-}
+{"heroName":"Nameless Hero","numberOfSlayedMonsters":2,"healthRemaining":10,"currentStrength":5,"potionRemaining":10,"totalScore":3055}

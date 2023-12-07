@@ -9,6 +9,7 @@ public final class ConfigDungeon {
     private static final int numberOfRoomsMax = 25;
     private static final int numberOfRoomTest = 1;
     private static final int heroStrength = 1;
+    String os = System.getProperty("os.name");
     private static final HashMap<String, HeroWeapons> arsenal = new HashMap<>();
 
     private ConfigDungeon() {
@@ -37,8 +38,9 @@ public final class ConfigDungeon {
     public static int getNumberOfRoomTest() {
         return numberOfRoomTest;
     }
-
-    private void createJSON() {
+    public String givePath(){
+        if (this.os.contains("Mac")) return "Ressources/";
+        else return "Ressouces\\";
 
     }
 
