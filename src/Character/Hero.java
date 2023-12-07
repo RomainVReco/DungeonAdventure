@@ -1,6 +1,5 @@
 package Character;
 
-
 import Event.ConfigDungeon;
 import Item.Item;
 import Room.Dungeon;
@@ -29,12 +28,13 @@ public class Hero extends Character {
     private ReduceLifePower power;
     private HashMap<String, HeroWeapons> arsenal = new HashMap<>();
     private List<Monster> slayedMonsters = new ArrayList<>();
+    String heroName;
 
     /****** CONSTRUCTEURS ******/
 
-    public Hero(int strength){
-
-        this.strength = strength;
+    public Hero(String name){
+        this.heroName = name;
+        this.strength = ConfigDungeon.getHeroStrength();
         Arrow arrow = new Arrow();
         WaterFlask waterFlask = new WaterFlask();
         Sword sword = new Sword();
@@ -57,6 +57,7 @@ public class Hero extends Character {
     }
 
     public Hero(){
+        this.setHeroName("Nameless Hero");
         this.strength = ConfigDungeon.getHeroStrength();
         Arrow arrow = new Arrow();
         WaterFlask waterFlask = new WaterFlask();
@@ -82,6 +83,12 @@ public class Hero extends Character {
     public int getStrength() {return strength;}
     public ReduceLifePower getPower() {return power;}
     public HashMap<String, HeroWeapons> getArsenal() {return arsenal;}
+    public String getHeroName() {
+        return heroName;
+    }
+    public List<Monster> getSlayedMonsters() {
+        return slayedMonsters;
+    }
 
     /******* SETTERS ******/
     public void setStrength(int strength) {
@@ -93,6 +100,13 @@ public class Hero extends Character {
     public void setPower(ReduceLifePower power) {this.power = power;}
     public void setArsenal(HashMap<String, HeroWeapons> arsenal) {this.arsenal = arsenal;}
 
+    public void setSlayedMonsters(List<Monster> slayedMonsters) {
+        this.slayedMonsters = slayedMonsters;
+    }
+
+    public void setHeroName(String heroName) {
+        this.heroName = heroName;
+    }
 
     /******* METHODES ******/
     private void selectWeaponFromArsenal(String weaponClassName){

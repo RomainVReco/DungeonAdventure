@@ -4,6 +4,7 @@ import Character.Hero;
 import Character.Monster;
 import Event.ConfigDungeon;
 import Event.GameEvent;
+import Event.SaveState;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,9 +53,9 @@ public class Dungeon {
             this.currentRoom +=1;
             roomToEnter.enterRoom(hero);
         } while((hero.isAlive())||(this.currentRoom<this.nombreRoom));
+        SaveState newSave = new SaveState(hero);
         if (!hero.isAlive()) {
             playerChoice = this.endGameEvent.gameOver();
-
         } else {
             playerChoice = this.endGameEvent.victory();
             }

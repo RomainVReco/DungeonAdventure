@@ -1,21 +1,27 @@
 package Event;
-
+import Character.Hero;
 public class SaveState {
 
     String heroName;
     int numberOfSlayedMonsters;
     int healthRemaining;
     int currentStrength;
-    int potionRemaining;
     int totalScore;
 
-    public SaveState (Hero hero, Room room){
+    public SaveState (){
 
     }
+    public SaveState (Hero hero){
+        this.heroName = hero.getHeroName();
+        this.numberOfSlayedMonsters = hero.getSlayedMonsters().size();
+        this.healthRemaining = hero.getNbLifePoints();
+        this.currentStrength = hero.getStrength();
+        calculateScore();
+    }
 
-    public void calculateScore(){
-        this.totalScore = this.currentStrength+this.healthRemaining*100+this.numberOfSlayedMonsters*1000+this.currentStrength*10
-                +this.potionRemaining;
+    private void calculateScore(){
+        this.totalScore = this.currentStrength+this.healthRemaining*100+this.numberOfSlayedMonsters*1000
+                +this.currentStrength*10;
     }
 
     public String getHeroName() {
@@ -49,15 +55,6 @@ public class SaveState {
     public void setCurrentStrength(int currentStrength) {
         this.currentStrength = currentStrength;
     }
-
-    public int getPotionRemaining() {
-        return potionRemaining;
-    }
-
-    public void setPotionRemaining(int potionRemaining) {
-        this.potionRemaining = potionRemaining;
-    }
-
     public int getTotalScore() {
         return totalScore;
     }
