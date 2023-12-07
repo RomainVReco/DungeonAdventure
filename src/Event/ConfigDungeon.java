@@ -1,21 +1,24 @@
+package Event;
+
 import Weapon.Hero.HeroWeapons;
 
 import java.util.HashMap;
 
-public final class Config {
-    private static Config config = null;
+public final class ConfigDungeon {
+    private static ConfigDungeon configDungeon = null;
     private static final int numberOfRooms = 25;
+    private static final int heroStrength = 1;
     private static final HashMap<String, HeroWeapons> arsenal = new HashMap<>();
 
-    private Config() {
+    private ConfigDungeon() {
 
     }
 
-    public static Config getConfig() {
-        if (config == null) {
-            config = new Config();
+    public static ConfigDungeon getConfig() {
+        if (configDungeon == null) {
+            configDungeon = new ConfigDungeon();
         }
-        return config;
+        return configDungeon;
     }
 
     public int getNumberOfRooms() {
@@ -24,6 +27,10 @@ public final class Config {
 
     public HashMap<String, HeroWeapons> getAllHeroWeapons(){
         return arsenal;
+    }
+
+    public static int getHeroStrength() {
+        return heroStrength;
     }
 
     private void createJSON() {

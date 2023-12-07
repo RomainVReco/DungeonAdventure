@@ -16,7 +16,7 @@ public class Zombie extends Monster {
     public Zombie() {
         s_iNbZombieInstances += 1;
         this.setMonsterName("Zombie");
-        this.setEffectiveWeaponType("FireArrow");
+        this.setEffectiveWeaponType("fire arrow");
         this.setWeapon(new Bite());
         if (s_iNbZombieInstances % 5 == 0) {
             this.setPotion(new StrengthPotion());

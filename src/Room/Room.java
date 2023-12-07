@@ -1,17 +1,18 @@
 package Room;
-import Character.*;
+import Character.Monster;
+import Character.MonsterFactory;
+import Character.Hero;
 import Item.*;
 
 import java.util.HashMap;
 
 public class Room implements Searchable {
     Monster monster;
-    MonsterFactory monsterFactory;
+    MonsterFactory monsterFactory = new MonsterFactory();;
     private HashMap<String, Item> setOfItems = new HashMap<>();
     private boolean hasBeenSearched = false;
 
     public Room(int p_iIndex) {
-        this.monsterFactory = new MonsterFactory();
         this.monster = this.monsterFactory.createMonster(p_iIndex);
 
         if (p_iIndex % 7 == 0) {

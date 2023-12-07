@@ -20,7 +20,6 @@ public abstract class Monster extends Character implements Searchable {
     protected static int s_iNbBarbarianInstances = 0;
     protected static int s_iNbTrollInstances = 0;
 
-
     @Override
     public Item search(){
         if (!searchDone) {

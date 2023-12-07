@@ -9,7 +9,7 @@ public class WaterFlask extends HeroWeapons{
      * Default constructor
      */
     public WaterFlask() {
-        this.setWeaponName("Water flask");
+        this.setWeaponName("water flask");
     }
 
 }

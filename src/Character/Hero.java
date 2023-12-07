@@ -1,6 +1,7 @@
 package Character;
 
 
+import Event.ConfigDungeon;
 import Item.Item;
 import Room.Dungeon;
 import Room.Searchable;
@@ -24,17 +25,16 @@ public class Hero extends Character {
     public Hero(int strength){
 
         this.strength = strength;
-
         Arrow arrow = new Arrow();
         WaterFlask waterFlask = new WaterFlask();
         Sword sword = new Sword();
         Spear spear = new Spear();
         FireArrow fireArrow = new FireArrow();
-        this.arsenal.put("Arrow", arrow);
-        this.arsenal.put("Fire Arrow",fireArrow);
-        this.arsenal.put("Spear", spear);
-        this.arsenal.put("Sword",sword);
-        this.arsenal.put("Water Flask", waterFlask);
+        this.arsenal.put("arrow", arrow);
+        this.arsenal.put("fire arrow",fireArrow);
+        this.arsenal.put("spear", spear);
+        this.arsenal.put("sword",sword);
+        this.arsenal.put("water flask", waterFlask);
 
         /**
          * Boucle for pour parcourir toutes les valeurs dans l'HashMap
@@ -47,16 +47,17 @@ public class Hero extends Character {
     }
 
     public Hero(){
+        this.strength = ConfigDungeon.getHeroStrength();
         Arrow arrow = new Arrow();
         WaterFlask waterFlask = new WaterFlask();
         Sword sword = new Sword();
         Spear spear = new Spear();
         FireArrow fireArrow = new FireArrow();
-        this.arsenal.put("Arrow", arrow);
-        this.arsenal.put("Fire Arrow",fireArrow);
-        this.arsenal.put("Spear", spear);
-        this.arsenal.put("Sword",sword);
-        this.arsenal.put("Water Flask", waterFlask);
+        this.arsenal.put("arrow", arrow);
+        this.arsenal.put("fire arrow",fireArrow);
+        this.arsenal.put("spear", spear);
+        this.arsenal.put("sword",sword);
+        this.arsenal.put("water flask", waterFlask);
         /**
          * Boucle for pour parcourir toutes les valeurs dans l'HashMap
          * arsenal et appeler la methode 'calculateAttackBonus'
@@ -82,15 +83,15 @@ public class Hero extends Character {
     public void setPower(ReduceLifePower power) {this.power = power;}
     public void setArsenal(HashMap<String, HeroWeapons> arsenal) {this.arsenal = arsenal;}
 
+
     /******* METHODES ******/
     private void selectWeaponFromArsenal(String weaponClassName){
         this.setWeapon(this.getArsenal().get(weaponClassName));
-
     }
+
     public void discoverEnnemy(Monster monster){
         String weaponClassName = monster.getEffectiveWeaponType();
         this.selectWeaponFromArsenal(weaponClassName);
-
     }
     public void improveHealth(int value){
         this.lifePoints += value;
@@ -106,12 +107,12 @@ public class Hero extends Character {
             }
         }
 
+
     /**
      * Fonction inutile pour le moment
      * @param dungeon
      */
     public void tryPower(Dungeon dungeon){
-
     }
 
 }

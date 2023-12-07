@@ -17,7 +17,7 @@ public class Barbarian extends Monster {
     public Barbarian() {
         s_iNbBarbarianInstances += 1;
         this.setMonsterName("Barbarian");
-        this.setEffectiveWeaponType("Sword");
+        this.setEffectiveWeaponType("sword");
         this.setWeapon(new Axe());
         if (Monster.s_iNbBarbarianInstances % 2 == 1) {
             this.setPotion(new HealthPotion());
