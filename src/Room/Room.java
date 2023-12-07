@@ -1,5 +1,4 @@
 package Room;
-
 import Character.Monster;
 import Character.MonsterFactory;
 import Character.Hero;
@@ -45,15 +44,20 @@ public class Room implements Searchable {
             // verifier si l'hero est encore en vie avant de lui permettre de contre-attaquer
             if (hero.isAlive()) {
                 System.out.println();
-                String weaponChoice = gestionUser.promptString("Which weapon would you like to use to attack the monster?");
+                String weaponChoice = gestionUser.promptString("Which weapon would you like to use to attack the monster?").toLowerCase();
+                // faut revoir la declarisation des armes dans hero --- gerer l'erreur
+                Weapon weaponToCampare = hero.getArsenal().get(weaponChoice);
+                if (monster.isWeaponEfficient(weaponToCampare))
+                    // L'hero counter-attaque le monstre
+                    hero.attack(this.monster);
+                else {
+                    System.out.println("the weapon selected is not the efficient one");
+                    System.out.println("As a result of that,The Hero loses his turn,and The Monster throws another Attack");
 
-            if (weaponChoice)
-                // L'hero counter-attaque le monstre
-                hero.attack(this.monster);
-               // System.out.println("Hero responds to the attack with its " + hero.getWeapon() +
-                        //" and inflicts " + heroAttackDamage + " damage.");
-                //System.out.println(this.monster.getMonsterName() + " has been hit and has now " + this.monster.getHealth() + " life points left");
-            } else {
+                    // System.out.println("Hero responds to the attack with its " + hero.getWeapon() +
+                    //" and inflicts " + heroAttackDamage + " damage.");
+                    //System.out.println(this.monster.getMonsterName() + " has been hit and has now " + this.monster.getHealth() + " life points left");
+                }
 
                 return;
             }
