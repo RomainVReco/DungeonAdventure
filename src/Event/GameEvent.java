@@ -3,7 +3,12 @@ package Event;
 import GestionUtilisateur.GestionUser;
 import Room.Dungeon;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import java.io.File;
+import java.io.IOException;
 
 public class GameEvent {
 
@@ -49,7 +54,7 @@ public class GameEvent {
         return this.gestionUser.promptYesNo("Would you like to play again ? (Y/N) ");
     }
 
-    public void SaveGame(SaveState newSave) {
+    public void saveGame(SaveState newSave) {
         String jsonString = "";
         ObjectMapper objectMapper = new ObjectMapper();
         try {
@@ -59,5 +64,4 @@ public class GameEvent {
         }
         System.out.println(jsonString);
     }
-
 }

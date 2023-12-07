@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import Character.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -46,6 +47,7 @@ class EndGameEventTest {
         hero.setStrength(5);
 
         SaveState save = new SaveState(hero);
-        new GameEvent().SaveGame(save);
+        new GameEvent().saveGame(save);
     }
+
 }
