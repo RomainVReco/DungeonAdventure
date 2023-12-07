@@ -11,6 +11,13 @@ import Weapon.ReduceLifePower;
 import java.util.HashMap;
 
 /**
+ * La classe Hero represente le personnage héroïque du jeu.
+ * Elle gère les caractéristiques comme la force du héros, ses pouvoirs,
+ * et son arsenal d'armes.
+ * Via cette classe le héros peut aussi intéragir avec certains éléments du jeu,
+ * telles que les potions à rechercher ou encore les monstres.
+ *
+ * @author Equipe
  *
  */
 public class Hero extends Character {
