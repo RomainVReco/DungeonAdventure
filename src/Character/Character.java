@@ -2,6 +2,16 @@ package Character;
 import Weapon.Weapon;
 
 
+
+/**
+ * La classe abstraite Charactere représente les personnages dans le contexte du jeu.
+ * Cette classe sert de base pour differents types de personnages avec des points de vie, une
+ * capacite d'attaquer et de recevoir des dégats.
+ * Elle peut créer des personnages specifiques avec des comportements supplementaires.
+ *
+ * @author Walid, Romain, Godwill
+ */
+
 public abstract class Character {
     protected int lifePoints;
     protected Weapon weapon;

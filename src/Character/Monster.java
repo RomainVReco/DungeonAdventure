@@ -6,12 +6,12 @@ import Weapon.ReduceLifePower;
 import Item.Item;
 
 /**
- * Cette classe abstrait Monster qui hérite de la classe Charactère représente le modèle d'un monstre dans le jeu
+ * Cette classe abstrait Monster qui hérite de la classe Charactère représente le modèle d'un monstre dans le jeu.
  * Elle définit les comportements et caractéristiques de base des monstres, à savoir la possibilités
  * qu'il se fassent fouiller, et qu'ils reçoivent des dégats. Cette classe est destinée
  * à être étendu par des types spécifiques de monstres
  *
- * @author Equipe
+ * @author Walid, Romain, Godwill
  *
  */
 public abstract class Monster extends Character implements Searchable {
