@@ -1,6 +1,8 @@
 package Test.GestionUtilisateur;
 
 import GestionUtilisateur.GestionUser;
+import Weapon.Weapon;
+import Character.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -64,6 +66,13 @@ class GestionUserTest {
         provideInputString(" ");
         input = gestionUser.promptString("Coucou");
         assertEquals(" ", input);
+    }
+
+    @Test
+    void string() {
+        Hero hero = new Hero();
+        Weapon weaponToCompare = hero.getArsenal().get("weaponChoice");
+        assertNull(weaponToCompare);
     }
 
     /**
