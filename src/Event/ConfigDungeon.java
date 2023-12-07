@@ -6,7 +6,8 @@ import java.util.HashMap;
 
 public final class ConfigDungeon {
     private static ConfigDungeon configDungeon = null;
-    private static final int numberOfRooms = 25;
+    private static final int numberOfRoomsMax = 25;
+    private static final int numberOfRoomTest = 1;
     private static final int heroStrength = 1;
     private static final HashMap<String, HeroWeapons> arsenal = new HashMap<>();
 
@@ -21,8 +22,8 @@ public final class ConfigDungeon {
         return configDungeon;
     }
 
-    public int getNumberOfRooms() {
-        return numberOfRooms;
+    public int getNumberOfRoomMax() {
+        return numberOfRoomsMax;
     }
 
     public HashMap<String, HeroWeapons> getAllHeroWeapons(){
@@ -31,6 +32,10 @@ public final class ConfigDungeon {
 
     public static int getHeroStrength() {
         return heroStrength;
+    }
+
+    public static int getNumberOfRoomTest() {
+        return numberOfRoomTest;
     }
 
     private void createJSON() {

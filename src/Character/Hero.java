@@ -8,7 +8,9 @@ import Room.Searchable;
 import Weapon.Hero.*;
 import Weapon.ReduceLifePower;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * La classe Hero represente le personnage héroïque du jeu.
@@ -26,6 +28,7 @@ public class Hero extends Character {
     private int strength;
     private ReduceLifePower power;
     private HashMap<String, HeroWeapons> arsenal = new HashMap<>();
+    private List<Monster> slayedMonsters = new ArrayList<>();
 
     /****** CONSTRUCTEURS ******/
 

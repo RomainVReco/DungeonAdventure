@@ -1,9 +1,7 @@
 package Character;
 import Weapon.Weapon;
 
-/**
- *
- */
+
 public abstract class Character {
     protected int lifePoints;
     protected Weapon weapon;
