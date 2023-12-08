@@ -3,13 +3,16 @@ package Test.Room;
 import Room.Dungeon;
 import Room.Room;
 import Character.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.io.ByteArrayInputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class DungeonTest {
 
-    static final Dungeon dungeon = new Dungeon(8);
+    static Dungeon dungeon = new Dungeon(8, new Hero());
 
     @Test
     void createRoom() {
@@ -18,7 +21,7 @@ class DungeonTest {
 
     @Test
     void createMaxRoom(){
-        Dungeon dungeonTest = new Dungeon(25);
+        Dungeon dungeonTest = new Dungeon(25, new Hero());
         assertEquals(25,dungeonTest.getListeRoom().size());
     }
     @Test
@@ -54,7 +57,7 @@ class DungeonTest {
 
     @Test
     void getAllMonstersFromDungeon() {
-        Dungeon dungeonTest = new Dungeon(25);
+        Dungeon dungeonTest = new Dungeon(25, new Hero());
         assertEquals(25,dungeonTest.getListeMonstres().size());
         int nbZombie = 0;
         int nbSorcer = 0;
@@ -81,8 +84,13 @@ class DungeonTest {
         assertEquals(6, nbTroll);
         assertEquals(4, nbThief);
         assertEquals(5, nbZombie);
-
-
-
+    }
+    /**
+     * Methode permettant de simuler la saisie utilisateur
+     * @param data : la chaine de caractère à tester
+     */
+    public void provideInputString(String data){
+        ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
+        System.setIn(testIn);
     }
 }

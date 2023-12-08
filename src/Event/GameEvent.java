@@ -12,8 +12,8 @@ public class GameEvent {
 
     GestionUser gestionUser = new GestionUser();
 
-    public void startGame(){
-        new Dungeon(ConfigDungeon.getNumberOfRoomTest());
+    public Dungeon startGame(){
+       return new Dungeon(ConfigDungeon.getNumberOfRoomTest());
     }
 
     /**

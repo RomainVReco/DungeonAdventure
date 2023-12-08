@@ -26,6 +26,17 @@ public class Dungeon {
     GameEvent endGameEvent = new GameEvent();
 
     /**
+     * Constructeur utilisé par la classe de test DungeonTest
+     * @param nombreRoom
+     * @param hero
+     */
+    public Dungeon(int nombreRoom, Hero hero){
+        this.nombreRoom = nombreRoom;
+        generateRoom(nombreRoom);
+        this.listeMonstres = this.getAllMonstersFromDungeon();
+    }
+
+    /**
      * Contructeur du Dungeon
      * @param nombreRoom : le nombre de pièces configuré
      */
