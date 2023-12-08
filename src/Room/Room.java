@@ -50,6 +50,7 @@ public class Room implements Searchable {
                         System.out.println("You can chose from this set : ");
                         for (String weaponName : hero.getArsenal().keySet()){
                             System.out.print(weaponName+" ");
+                            System.out.println(" ");
                         }
                     } else if (monster.isWeaponEfficient(weaponToCompare)) {
                         hero.attack(this.monster);
