@@ -6,6 +6,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+
+/**
+ * La classe ConfigDungeon sert à configurer le donjon dans le jeu ou
+ * dans la classe test.
+ * Cette classe garanti qu'une seul instance de la configuration est cree et est utilisee dans tout
+ * le jeu.
+ * Elle fournit des parametres de configuration, et recupere par ses methodes des informations pour le
+ * bon fonctionnement du jeu.
+ */
 public final class ConfigDungeon {
     private static int heroLifePoints = 50;
     private static ConfigDungeon configDungeon = null;

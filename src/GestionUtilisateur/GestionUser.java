@@ -1,9 +1,10 @@
 package GestionUtilisateur;
 
-import java.io.ByteArrayInputStream;
-import java.io.PrintStream;
 import java.util.Scanner;
 
+/**
+ * 
+ */
 public class GestionUser {
 
     public GestionUser() {
