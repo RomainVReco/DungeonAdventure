@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import Character.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +26,7 @@ class EndGameEventTest {
         listeMonster.add(new Barbarian());
         hero.setSlayedMonsters(listeMonster);
         hero.setLifePoints(10);
-        hero.setStrength(5);
+        hero.setWeaponAttackBonus(5);
 
         SaveState save = new SaveState(hero);
         assertEquals(3055, save.getTotalScore());
@@ -45,7 +44,7 @@ class EndGameEventTest {
         listeMonster.add(new Barbarian());
         hero.setSlayedMonsters(listeMonster);
         hero.setLifePoints(10);
-        hero.setStrength(5);
+        hero.setWeaponAttackBonus(5);
 
         SaveState save = new SaveState(hero);
         new GameEvent().saveGame(save);

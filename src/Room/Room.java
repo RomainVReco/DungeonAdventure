@@ -31,10 +31,11 @@ public class Room implements Searchable {
      * @param hero : le héros créé à l'initialisation du jeu
      */
     public void enterRoom(Hero hero) {
+        System.out.println(" ");
         hero.discoverEnnemy(this.monster);
         System.out.println("Oh ! A wild "+monster.getMonsterName()+" appears !");
         System.out.println("This abomination is sensitive to "+monster.getEffectiveWeaponType());
-
+        System.out.println(" ");
         while (this.monster.isAlive() && hero.isAlive()) {
             System.out.println("The monster is attacking !");
             this.monster.attack(hero);
@@ -49,7 +50,7 @@ public class Room implements Searchable {
                             System.out.print(weaponName+" ");
                         }
                     } else if (monster.isWeaponEfficient(weaponToCompare)) {
-                        System.out.println("The hero is attacking the monster");
+                        System.out.println("The hero is attacking the monster\n");
                         hero.attack(this.monster);
                     }
                     else {

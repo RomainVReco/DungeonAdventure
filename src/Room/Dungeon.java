@@ -100,9 +100,9 @@ public class Dungeon {
      */
     public void greetHeros(Hero hero) {
         String playerChoice;
-        System.out.println("Welcome to the dungeon de la Muerte, Adventurer");
+        System.out.println("\nWelcome to the dungeon de la Muerte, Adventurer\n");
         do {
-            System.out.println("Be ready to enter room n°"+(this.getCurrentRoom()+1));
+            System.out.println("\nBe ready to enter room n°"+(this.getCurrentRoom()+1));
             Room roomToEnter = this.listeRoom.get(this.currentRoom);
             this.currentRoom +=1;
             roomToEnter.enterRoom(hero);
@@ -110,10 +110,10 @@ public class Dungeon {
         SaveState newSave = new SaveState(hero);
         this.endGameEvent.saveGame(newSave);
         if (!hero.isAlive()) {
-            System.out.println("The Hero is dead");
+            System.out.println("\nThe Hero is dead\n");
             playerChoice = this.endGameEvent.gameOver();
         } else {
-            System.out.println("You passed the last room");
+            System.out.println("\nYou defeated all the monsters\n");
             playerChoice = this.endGameEvent.victory();
             }
         switch (playerChoice){
