@@ -1,5 +1,10 @@
 package Event;
 import Character.Hero;
+
+/**
+ * Créer un POJO pour sauvegarder certaines informations de la partie afin de calculer un score et effectuer
+ * une sérialisation de l'objet
+ */
 public class SaveState {
 
     String heroName;
@@ -8,9 +13,18 @@ public class SaveState {
     int currentStrength;
     int totalScore;
 
+    /**
+     * Constructeur par défaut
+     */
     public SaveState (){
 
     }
+
+    /**
+     * Constructeur de l'objet SaveState, prend un objet Hero en paramètre, pour en extraire les informations nécesaires
+     * au calcul du score
+     * @param hero
+     */
     public SaveState (Hero hero){
         this.heroName = hero.getHeroName();
         this.numberOfSlayedMonsters = hero.getSlayedMonsters().size();
@@ -19,6 +33,9 @@ public class SaveState {
         calculateScore();
     }
 
+    /**
+     * Formule de calcul du score, qui privilégie le nombre de Room passées
+     */
     private void calculateScore(){
         this.totalScore = this.currentStrength+(this.healthRemaining*100)+(this.numberOfSlayedMonsters*1000
         )+(this.currentStrength*10);
@@ -27,39 +44,16 @@ public class SaveState {
     public String getHeroName() {
         return heroName;
     }
-
-    public void setHeroName(String heroName) {
-        this.heroName = heroName;
-    }
-
     public int getNumberOfSlayedMonsters() {
         return numberOfSlayedMonsters;
     }
-
-    public void setNumberOfSlayedMonsters(int numberOfSlayedMonsters) {
-        this.numberOfSlayedMonsters = numberOfSlayedMonsters;
-    }
-
     public int getHealthRemaining() {
         return healthRemaining;
     }
-
-    public void setHealthRemaining(int healthRemaining) {
-        this.healthRemaining = healthRemaining;
-    }
-
     public int getCurrentStrength() {
         return currentStrength;
     }
-
-    public void setCurrentStrength(int currentStrength) {
-        this.currentStrength = currentStrength;
-    }
     public int getTotalScore() {
         return totalScore;
-    }
-
-    public void setTotalScore(int totalScore) {
-        this.totalScore = totalScore;
     }
 }
