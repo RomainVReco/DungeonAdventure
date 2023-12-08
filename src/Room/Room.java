@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class Room implements Searchable {
     Monster monster;
     MonsterFactory monsterFactory = new MonsterFactory();
-    ItemFactory itemFactory = new ItemFactory();
+    ConcreteItemFactory itemFactory = new ConcreteItemFactory();
     private HashMap<String, Item> setOfItems;
     private boolean hasBeenSearched = false;
     GestionUser gestionUser = new GestionUser();
