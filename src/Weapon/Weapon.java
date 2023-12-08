@@ -8,7 +8,7 @@ import Character.Character;
  *
  * @author Equipe
  */
-public class Weapon {
+public abstract class Weapon {
     String weaponName;
     protected int m_iAttackPoints;
 

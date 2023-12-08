@@ -19,7 +19,7 @@ class MonsterWeaponTest {
         Club club = new Club();
         Hero hero = new Hero();
         int baseLifePoint = hero.getNbLifePoints();
-        assertEquals(0, hero.getNbLifePoints());
+        assertEquals(10, hero.getNbLifePoints());
         club.inflictDamage(hero);
         assertEquals(baseLifePoint- club.getAttackPoints(), hero.getNbLifePoints());
     }
