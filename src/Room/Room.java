@@ -7,23 +7,22 @@ import Item.*;
 import Weapon.Weapon;
 import java.util.HashMap;
 
+
+/**
+ * Classe représentant une Room qui à sa création et à partir d'un entier va générer un monstre que le joueur affrontera
+ * Si certaintes conditions sont remplies, une potion ou plusieurs potions peuvent être stockées dans la Room.
+ */
 public class Room implements Searchable {
     Monster monster;
-    MonsterFactory monsterFactory = new MonsterFactory();;
+    MonsterFactory monsterFactory = new MonsterFactory();
+    ItemFactory itemFactory = new ItemFactory();
     private HashMap<String, Item> setOfItems = new HashMap<>();
     private boolean hasBeenSearched = false;
-
     GestionUser gestionUser = new GestionUser();
 
     public Room(int p_iIndex) {
         this.monster = this.monsterFactory.createMonster(p_iIndex);
-
-        if (p_iIndex % 7 == 0) {
-            this.setOfItems.put("Health potion", new HealthPotion());
-        }
-        if (p_iIndex % 4 == 0) {
-            this.setOfItems.put("Strength potion", new StrengthPotion());
-        }
+        this.setOfItems = this.itemFactory.createItem(p_iIndex);
     }
 
     /**
@@ -72,8 +71,6 @@ public class Room implements Searchable {
         if (searchMonster.equals("Y")) {
             hero.searchForPotions(this.monster);
         }
-
-
     }
 
     /**
