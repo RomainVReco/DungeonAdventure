@@ -41,6 +41,7 @@ public class Room implements Searchable {
             this.monster.attack(hero);
 
             if (hero.isAlive()) {
+                System.out.println(" ");
                 String weaponChoice = gestionUser.promptString("Which weapon would you like to use to attack the monster?").toLowerCase();
                     Weapon weaponToCompare = hero.getArsenal().get(weaponChoice);
                     if (weaponToCompare == null) {
@@ -50,7 +51,6 @@ public class Room implements Searchable {
                             System.out.print(weaponName+" ");
                         }
                     } else if (monster.isWeaponEfficient(weaponToCompare)) {
-                        System.out.println("The hero is attacking the monster\n");
                         hero.attack(this.monster);
                     }
                     else {
@@ -61,7 +61,7 @@ public class Room implements Searchable {
                 } else return;
             }
         hero.getSlayedMonsters().add(this.monster);
-        System.out.println("The room has been purged from the unholy creature");
+        System.out.println("\nThe room has been purged from the unholy creature");
         String searchRoom = gestionUser.promptYesNo("Do you want to search the room ?");
 
         if (searchRoom.equals("Y")) {
