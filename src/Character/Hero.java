@@ -70,11 +70,8 @@ public class Hero extends Character {
         this.arsenal.put("spear", spear);
         this.arsenal.put("sword",sword);
         this.arsenal.put("water flask", waterFlask);
-        /**
-         * Boucle for pour parcourir toutes les valeurs dans l'HashMap
-         * arsenal et appeler la methode 'calculateAttackBonus'
-         * sur chacune d'elle.
-         */
+
+
         for (HeroWeapons weapon : arsenal.values()){
             weapon.calculateAttackBonus(this.strength);
         }

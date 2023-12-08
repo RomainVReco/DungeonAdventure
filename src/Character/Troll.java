@@ -1,18 +1,23 @@
 package Character;
 
-import Item.Item;
 import Item.StrengthPotion;
 import Weapon.Monster.Club;
 import Weapon.ReduceLifePower;
 
 /**
- *
+ * La classe Troll represente un type de monstre dans le jeu, un Troll.
+ * Cette classe qui est une extension de la classe Monster definit des attributs et des comportements
+ * spécifique au Troll.
+ * Nous y retrouvons son nom, son arme, sa vulnerabilite a un type d'arme specifique et la
+ * possibilité qu'il possede une "StrengthPotion" selon le nombre d'instances.
  */
 public class Troll extends Monster {
 
     /**
-     * Default constructor
+     * Constructeur par defaut qui cree une instance de Troll
+     *
      */
+
     public Troll() {
         s_iNbTrollInstances += 1;
         this.setMonsterName("Troll");
@@ -24,7 +29,7 @@ public class Troll extends Monster {
         }
     }
     /**
-     * A coder
+     *
      * @param power
      */
     @Override

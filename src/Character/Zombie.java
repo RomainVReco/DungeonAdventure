@@ -1,17 +1,20 @@
 package Character;
 
-import Item.Item;
 import Item.StrengthPotion;
 import Weapon.Monster.Bite;
 import Weapon.ReduceLifePower;
 
 /**
+ * La classe Zombie represente un modele pour le type de monstre "zombie" dans le jeu.
+ * Cette classe qui est une extension de la classe monstre définit des caracteristiques specifiques au zombie
+ * comme son nom, som arme, et sa vulnérabilité a un type arme (flèche enflammee).
+ * Un zombie cree detient une StrenghtPotion.
  *
  */
 public class Zombie extends Monster {
 
     /**
-     * Default constructor
+     * Le constructeur par default cree une instance de zombie
      */
     public Zombie() {
         s_iNbZombieInstances += 1;
