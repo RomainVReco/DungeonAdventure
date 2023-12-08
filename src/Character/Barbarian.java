@@ -1,12 +1,16 @@
 package Character;
 
 import Item.HealthPotion;
-import Item.Item;
 import Item.StrengthPotion;
 import Weapon.Monster.Axe;
 import Weapon.ReduceLifePower;
 
 /**
+ * La classe barbarian represente un type specifique de monstre, le barbare.
+ * Elle est une extension de la classe Monstre qui definit ses caracteristique et des comportements.
+ * On y retrouve sont nom , son arme, ainsi que sa vulerabilite a un type d'arme.
+ * les instances de Barbare alternent entre la detenttion d'une HealthPotion et
+ * d'une StrenghtPotion
  *
  */
 public class Barbarian extends Monster {
@@ -27,7 +31,7 @@ public class Barbarian extends Monster {
     }
 
     /**
-     * A coder
+     *
      * @param power
      */
     @Override

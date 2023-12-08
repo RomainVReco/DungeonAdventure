@@ -85,7 +85,7 @@ public abstract class Monster extends Character implements Searchable {
     }
 
     /**
-     * A coder
+     *
      * @param power
      */
     public abstract void hitByPower(ReduceLifePower power);
