@@ -28,12 +28,15 @@ public abstract class Monster extends Character implements Searchable {
 
     @Override
     public Item search(){
-        if (!searchDone) {
+        if (potion != null) {
             this.setSearchDone(true);
             return this.getPotion();
         } else {
-            System.out.println("The monster's corpse has already been searched");
-            return null;
+            if (searchDone){
+                System.out.println("The monster's corpse has already been searched");
+            }
+            else System.out.println("This monster has no potion");
+        return null;
         }
     }
 

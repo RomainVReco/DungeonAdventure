@@ -7,10 +7,10 @@ import java.util.HashMap;
 import java.util.List;
 
 public final class ConfigDungeon {
-    private static int heroLifePoints = 50;
+    private static int heroLifePoints = 60;
     private static ConfigDungeon configDungeon = null;
     private static final int numberOfRoomsMax = 25;
-    private static final int numberOfRoomTest = 1;
+    private static final int numberOfRoomTest = 5;
     private static final int heroStrength = 1;
     String os = System.getProperty("os.name");
     private static List<String> savedGame  =new ArrayList<>();

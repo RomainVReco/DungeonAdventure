@@ -89,7 +89,7 @@ public class Hero extends Character {
     }
 
     /******* SETTERS ******/
-    public void setStrength(int strength) {
+    public void setWeaponAttackBonus(int strength) {
         this.strength = strength;
         for (HeroWeapons weapon : arsenal.values()) {
             weapon.calculateAttackBonus(this.strength);
@@ -120,8 +120,9 @@ public class Hero extends Character {
     }
     public void improveStrength(int value){
         this.strength += value;
+        this.setWeaponAttackBonus(this.getStrength());
     }
-    // Attention à prévoir un retour null, dans le cas où le Searchable a déjà été fouillé
+
     public void searchForPotions (Searchable searchable){
             Item foundItem = searchable.search();
             if (foundItem != null) {
