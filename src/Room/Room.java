@@ -9,14 +9,14 @@ import java.util.HashMap;
 
 
 /**
- * Classe représentant une Room qui à sa création et à partir d'un entier va générer un monstre que le joueur affrontera
+ * Classe représentant une Room qui à sa création, et à partir d'un entier, va générer un monstre que le joueur affrontera
  * Si certaintes conditions sont remplies, une potion ou plusieurs potions peuvent être stockées dans la Room.
  */
 public class Room implements Searchable {
     Monster monster;
     MonsterFactory monsterFactory = new MonsterFactory();
     ItemFactory itemFactory = new ItemFactory();
-    private HashMap<String, Item> setOfItems = new HashMap<>();
+    private HashMap<String, Item> setOfItems;
     private boolean hasBeenSearched = false;
     GestionUser gestionUser = new GestionUser();
 

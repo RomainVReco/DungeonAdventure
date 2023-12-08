@@ -61,12 +61,21 @@ class RoomTest {
         assertSame(Troll.class, roomTest.getMonster().getClass());
     }
     @Test
-    void searchRoom(){
+    void searchRoomStrength(){
         Room roomWithoutPotion = new Room(1);
         assertNull(roomWithoutPotion.search());
 
         Room roomWithPotion = new Room(4);
         assertEquals(StrengthPotion.class, roomWithPotion.search().getClass());
+    }
+
+    @Test
+    void searchRoomHealth(){
+        Room roomWithoutPotion = new Room(1);
+        assertNull(roomWithoutPotion.search());
+
+        Room roomWithPotion = new Room(7);
+        assertEquals(HealthPotion.class, roomWithPotion.search().getClass());
     }
     @Test
     void enterRoom() {
