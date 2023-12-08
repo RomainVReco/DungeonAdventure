@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public final class ConfigDungeon {
-    private static int heroLifePoints = 60;
+    private static int heroLifePoints = 150;
     private static ConfigDungeon configDungeon = null;
     private static final int numberOfRoomsMax = 25;
     private static final int numberOfRoomTest = 5;

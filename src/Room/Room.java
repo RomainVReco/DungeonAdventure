@@ -33,7 +33,8 @@ public class Room implements Searchable {
     public void enterRoom(Hero hero) {
         System.out.println(" ");
         hero.discoverEnnemy(this.monster);
-        System.out.println("Oh ! A wild "+monster.getMonsterName()+" appears !");
+        System.out.println("Oh ! A wild "+monster.getMonsterName()+" appears ! It has a "+this.monster.getWeapon().getWeaponName()+
+                "in its hand. Be careful !");
         System.out.println("This abomination is sensitive to "+monster.getEffectiveWeaponType());
         System.out.println(" ");
         while (this.monster.isAlive() && hero.isAlive()) {
