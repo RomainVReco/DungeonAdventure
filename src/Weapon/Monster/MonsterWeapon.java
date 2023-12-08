@@ -8,12 +8,10 @@ import Weapon.Weapon;
 public class MonsterWeapon extends Weapon {
 
     /*** Attributs ***/
-    private int criticalCountDown;
+    private int criticalCountDown = 0;
     private int maxRoundBeforeCritical = -1;
     private float bonusDamage = 1;
 
-    public MonsterWeapon() {
-    }
 
     /**
      * Inflige des dommages au personnage passé en paramètre à partir des dégâts de l'arme -> attackPoints.
@@ -34,6 +32,7 @@ public class MonsterWeapon extends Weapon {
             float baseDamage = Integer.valueOf(this.getAttackPoints()).floatValue();
             float damageToApply = this.bonusDamage * baseDamage;
             int finalDamage = Math.round(damageToApply);
+            System.out.print("Critical hit ! ");
             targetCharacter.receiveDamages(finalDamage);
             this.setCriticalCountDown(0);
         }

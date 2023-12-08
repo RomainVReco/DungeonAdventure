@@ -2,6 +2,7 @@ package Character;
 
 import Item.HealthPotion;
 import Weapon.Monster.Dagger;
+import Weapon.Monster.Opinel;
 import Weapon.ReduceLifePower;
 
 /**
@@ -21,6 +22,7 @@ public class Thief extends Monster {
         this.setEffectiveWeaponType("arrow"); //this.effectiveWeaponType = "Arrow";
         if (Monster.s_iNbThiefInstances % 6 == 1) {
             this.setPotion(new HealthPotion());
+            this.setWeapon(new Opinel());
         }
     }
 
