@@ -1,10 +1,14 @@
 package Test.Room;
 
+import GestionUtilisateur.GestionUser;
 import Item.HealthPotion;
 import Item.StrengthPotion;
 import Room.Room;
 import org.junit.jupiter.api.Test;
 import Character.*;
+
+import java.io.ByteArrayInputStream;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -66,6 +70,31 @@ class RoomTest {
     }
     @Test
     void enterRoom() {
-        fail();
+        Hero hero = new Hero();
+        hero.setLifePoints(20);
+        Room room = new Room(3);
+        room.getMonster().setLifePoints(10);
+        provideInputString("spear");
+        GestionUser gestionUser = new GestionUser();
+        assertThrows(NoSuchElementException.class,() -> gestionUser.promptYesNo("Coucou"));
+    }
+
+    /**
+     * Methode permettant de simuler la saisie utilisateur
+     * @param data : la chaine de caractère à tester
+     */
+    public void provideInputString(String data){
+        ByteArrayInputStream testIn = new ByteArrayInputStream(data.getBytes());
+        System.setIn(testIn);
+    }
+
+    /**
+     * Méthode pour simuler de multiples saisies
+     * @param inputs
+     */
+    public void provideMultipleInputs(String... inputs) {
+        for (String input : inputs) {
+            provideInputString(input);
+        }
     }
 }

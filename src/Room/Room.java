@@ -55,25 +55,25 @@ public class Room implements Searchable {
                     }
                     else {
                         System.out.println("The weapon selected has no effect !");
-                        System.out.println("As a result of that, the Hero loses his turn,and The Monster throws another Attack");
+                        System.out.println("As a result, the Hero loses his turn,and The Monster throws another Attack");
                         System.out.println("Keep in mind that the only effective against this spawn of Hell is "+monster.getEffectiveWeaponType());
                     }
                 } else return;
             }
-
-        // Apres le combat, demander au Hero s'il veut fouiller la piece
-        String searchRoom = gestionUser.promptYesNo("Do you want to search the room? (Y/N)");
+        hero.getSlayedMonsters().add(this.monster);
+        System.out.println("The room has been purged from the unholy creature");
+        String searchRoom = gestionUser.promptYesNo("Do you want to search the room ?");
 
         if (searchRoom.equals("Y")) {
             hero.searchForPotions(this);
         }
 
-        String searchMonster = gestionUser.promptYesNo("Do you want to search the defeated monster? (Y/N)");
+        String searchMonster = gestionUser.promptYesNo("Do you want to search the defeated monster ?");
         if (searchMonster.equals("Y")) {
             hero.searchForPotions(this.monster);
         }
 
-        System.out.println("The room has been purged from the unholy creatures");
+
     }
 
     /**
@@ -91,7 +91,6 @@ public class Room implements Searchable {
                         return item;
                     }
                 }
-                // Demander au jouer quelle potion il veut
                 else {
                     String potionChoice = gestionUser.promptYesNo("Do you want the Health potion[Y] or the Strength potion[N] search the defeated monster ?");
                     if (potionChoice.equals("Y")) {

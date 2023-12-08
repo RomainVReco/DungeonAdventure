@@ -5,6 +5,7 @@ import Weapon.Hero.HeroWeapons;
 import java.util.HashMap;
 
 public final class ConfigDungeon {
+    public static int heroLifePoints = 50;
     private static ConfigDungeon configDungeon = null;
     private static final int numberOfRoomsMax = 25;
     private static final int numberOfRoomTest = 1;
@@ -42,6 +43,10 @@ public final class ConfigDungeon {
         if (this.os.contains("Mac")) return "Ressources/";
         else return "Ressouces\\";
 
+    }
+
+    public static int getHeroLifePoints(){
+        return heroLifePoints;
     }
 
 }

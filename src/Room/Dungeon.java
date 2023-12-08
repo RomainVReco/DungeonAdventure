@@ -5,6 +5,7 @@ import Character.Monster;
 import Event.ConfigDungeon;
 import Event.GameEvent;
 import Event.SaveState;
+import GestionUtilisateur.GestionUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,16 +14,24 @@ public class Dungeon {
     List<Room> listeRoom = new ArrayList<>();
     List<Monster> listeMonstres;
     int nombreRoom;
-    int currentRoom = 1;
+    int currentRoom = 0;
     GameEvent endGameEvent = new GameEvent();
 
     public Dungeon(int nombreRoom) {
         this.nombreRoom = nombreRoom;
-        genererRoom(nombreRoom);
+        generateRoom(nombreRoom);
         this.listeMonstres = this.getAllMonstersFromDungeon();
+        Hero hero = generateHero();
+        greetHeros(hero);
     }
 
-    private void genererRoom(int nombreRoom) {
+    private Hero generateHero() {
+        GestionUser gestionUser = new GestionUser();
+        String heroName = gestionUser.promptString("What is the Hero's name ?");
+        return new Hero(heroName);
+    }
+
+    private void generateRoom(int nombreRoom) {
         Room roomTemp;
         for (int i=1; i<=nombreRoom; i++){
             roomTemp = new Room(i);
@@ -46,15 +55,17 @@ public class Dungeon {
      */
     public void greetHeros(Hero hero) {
         String playerChoice;
-        System.out.print("Aventurier, bienvenue dans le donjon de la Muerte");
+        System.out.println("Welcome to the dungeon de la Muerte, Adventurer");
         do {
-            System.out.println("Préparte toi à rentrer dans la pièce n°"+this.getCurrentRoom());
+            System.out.println("Be ready to enter room n°"+(this.getCurrentRoom()+1));
             Room roomToEnter = this.listeRoom.get(this.currentRoom);
             this.currentRoom +=1;
             roomToEnter.enterRoom(hero);
-        } while((hero.isAlive())||(this.currentRoom<this.nombreRoom));
+        } while((hero.isAlive())&&(this.currentRoom<this.nombreRoom));
         SaveState newSave = new SaveState(hero);
+        this.endGameEvent.saveGame(newSave);
         if (!hero.isAlive()) {
+            System.out.println("The Hero is dead");
             playerChoice = this.endGameEvent.gameOver();
         } else {
             playerChoice = this.endGameEvent.victory();
@@ -63,15 +74,9 @@ public class Dungeon {
             case "Y":
                 new Dungeon(ConfigDungeon.getNumberOfRoomTest());
             case "N":
+                System.out.println("\nSee you later, alligator\n");
                 System.exit(9999);
         }
-        //        for (Room room : this.getListeRoom()){
-//            System.out.println("Préparte toi à rentrer dans la pièce n°"+this.getCurrentRoom());
-//            room.enterRoom(hero);
-//
-//            System.out.println("Bravo, tu as vaincu le "+room.getMonster()+". Un autre défi t'attend aventurier");
-//            this.currentRoom +=1;
-//        }
     }
 
     public List<Room> getListeRoom() {

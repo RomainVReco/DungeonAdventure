@@ -19,7 +19,7 @@ public class GameEvent {
     }
 
     public String gameOver(){
-        String defeatEndGameText = "In the echoing depths of the foreboding dungeon, a haunting silence descends as the \n" +
+        String defeatEndGameText = "\nIn the echoing depths of the foreboding dungeon, a haunting silence descends as the \n" +
                 "valiant hero lies fallen, defeated by the malevolent forces that lurk within. The once-hopeful mission \n" +
                 "to purge the evil that gripped the darkened halls has ended in tragedy. \n" +
 
@@ -31,14 +31,14 @@ public class GameEvent {
                 "The evil, now unchained, hungers for dominion over the realm of Earth. The failed mission has become a \n" +
                 "harbinger of doom, and the consequences of the hero's defeat weigh heavily on the fate of all.";
         System.out.println(defeatEndGameText);
-        return this.gestionUser.promptYesNo("Defeat has befallen our valiant hero. Would you dare to rise again, " +
-                "face the looming shadows, and rewrite the destiny that awaits in the dungeon's depths ?");
+        return this.gestionUser.promptYesNo("\nDefeat has befallen our valiant hero. Would you dare to rise again, " +
+                "face the looming shadows, and rewrite the destiny that awaits in the dungeon's depths ?\n");
 
 
     }
 
     public String victory(){
-        String victoryEndGameText = "In the dimly lit chambers of the ominous dungeon, a triumphant hush falls. The valiant hero,\n" +
+        String victoryEndGameText = "\nIn the dimly lit chambers of the ominous dungeon, a triumphant hush falls. The valiant hero,\n" +
                 "armed with unwavering courage and a gleaming blade, has vanquished every monstrous foe that dared to roam the echoing halls.\n" +
 
         "\nThe once-menacing shadows have now succumbed to the radiance of victory, leaving behind a trail of defeated \n" +
@@ -51,7 +51,7 @@ public class GameEvent {
                 "basks in the glow of the hero's triumph. A new chapter awaits, and the hero, having conquered all, emerges\n" +
                 "from the shadows into the light,ready for the next adventure that awaits beyond the dungeon's formidable gates.";
         System.out.println(victoryEndGameText);
-        return this.gestionUser.promptYesNo("Would you like to play again ? (Y/N) ");
+        return this.gestionUser.promptYesNo("\nWould you like to play again ?\n");
     }
 
     public void saveGame(SaveState newSave) {

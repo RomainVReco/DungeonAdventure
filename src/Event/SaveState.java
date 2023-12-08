@@ -20,8 +20,8 @@ public class SaveState {
     }
 
     private void calculateScore(){
-        this.totalScore = this.currentStrength+this.healthRemaining*100+this.numberOfSlayedMonsters*1000
-                +this.currentStrength*10;
+        this.totalScore = this.currentStrength+(this.healthRemaining*100)+(this.numberOfSlayedMonsters*1000
+        )+(this.currentStrength*10);
     }
 
     public String getHeroName() {

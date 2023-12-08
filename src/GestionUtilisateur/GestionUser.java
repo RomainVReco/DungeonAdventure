@@ -10,6 +10,7 @@ public class GestionUser {
     }
 
     public String promptString(String prompt) {
+        System.out.print(prompt+" : ");
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
         return input;

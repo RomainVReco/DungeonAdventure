@@ -35,6 +35,7 @@ public class Hero extends Character {
     public Hero(String name){
         this.heroName = name;
         this.strength = ConfigDungeon.getHeroStrength();
+        this.setLifePoints(ConfigDungeon.getHeroLifePoints());
         Arrow arrow = new Arrow();
         WaterFlask waterFlask = new WaterFlask();
         Sword sword = new Sword();

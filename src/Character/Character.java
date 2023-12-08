@@ -20,6 +20,7 @@ public abstract class Character {
      * Default constructor
      */
     public Character() {
+        this.lifePoints = 10;
     }
 
     public void attack(Character targetCharacter){
