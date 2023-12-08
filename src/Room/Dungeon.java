@@ -10,6 +10,14 @@ import GestionUtilisateur.GestionUser;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Créer un objet Dungeon qui va génerer automatiquement les Room, où évoluera le héros. La création nécessite un entier,
+ * qui déterminera le nombre de pièce.
+ * Le héros est généré automatiquement et il sera demandé au joueur de personnaliser le prénom via une demande de
+ * la console.
+ * Une fois le nom du héros renseigné, le jeu a proprement parlé est lancé
+ *
+ */
 public class Dungeon {
     List<Room> listeRoom = new ArrayList<>();
     List<Monster> listeMonstres;
@@ -17,6 +25,10 @@ public class Dungeon {
     int currentRoom = 0;
     GameEvent endGameEvent = new GameEvent();
 
+    /**
+     * Contructeur du Dungeon
+     * @param nombreRoom : le nombre de pièces configuré
+     */
     public Dungeon(int nombreRoom) {
         this.nombreRoom = nombreRoom;
         generateRoom(nombreRoom);
@@ -25,12 +37,22 @@ public class Dungeon {
         greetHeros(hero);
     }
 
+    /**
+     * Créer un héro lors de l'instranciation du Dungeon. Nécessite une entrée utilisateur via le clavier, pour déterminer
+     * le nom
+     * @return le héro nouvellement créé
+     */
     private Hero generateHero() {
         GestionUser gestionUser = new GestionUser();
         String heroName = gestionUser.promptString("What is the Hero's name ?");
         return new Hero(heroName);
     }
 
+    /**
+     * A partir d'un entier, la méthode construit autant de Room que cet entier. Le joueur et son héro passeront donc
+     * par autant de Room
+     * @param nombreRoom un entier
+     */
     private void generateRoom(int nombreRoom) {
         Room roomTemp;
         for (int i=1; i<=nombreRoom; i++){
@@ -40,6 +62,11 @@ public class Dungeon {
         }
     }
 
+    /**
+     * Une fois l'ensemble des Room générées à l'initialisation du Dungeon, la méthode stocke la liste de l'ensemble des
+     * monstres dans l'ordre de leur création
+     * @return une ArrayList de l'ensemble des monstres
+     */
     public List<Monster> getAllMonstersFromDungeon() {
         List<Monster> listeMonstreRoom = new ArrayList<>();
         for (Room room : this.getListeRoom()){
@@ -50,8 +77,15 @@ public class Dungeon {
     }
 
     /**
+     * Lance le jeu et gère sa fin.
+     * La fin est lancée en fonction de 2 évènements.
+     * 1 : Le héro n'a plus de point de vie. Le score du joueur est sauvegardé et l'écran de défaite est lancé également.
+     * Il est alors proposé au joueur de relancer une partie ou non.
+     * 2 : Le héro a vaincu tous les monstres et a donc passé toutes les Room. Le score du joueur est sauvegardé.
+     * L'écran de victoire est lancé. Il est alors proposé au joueur de relancer une partie ou non.
      *
-     * @param hero
+     * Dans le cas où le joueur ne souhaite pas relancer une partie, alors le programme se ferme après avoir salué le joueur
+     * @param hero : le héro généré par le Dungeon et personnalisé par le joueur
      */
     public void greetHeros(Hero hero) {
         String playerChoice;
@@ -68,6 +102,7 @@ public class Dungeon {
             System.out.println("The Hero is dead");
             playerChoice = this.endGameEvent.gameOver();
         } else {
+            System.out.println("You passed the last room");
             playerChoice = this.endGameEvent.victory();
             }
         switch (playerChoice){
@@ -89,37 +124,6 @@ public class Dungeon {
     public int getCurrentRoom() {
         return currentRoom;
     }
-
-
-    public void setListeRoom(List<Room> listeRoom) {
-        this.listeRoom = listeRoom;
-    }
-
-    public int getNombreRoom() {
-        return nombreRoom;
-    }
-
-    public void setNombreRoom(int nombreRoom) {
-        this.nombreRoom = nombreRoom;
-    }
-
-    public Room getRoom(int roomIndex) {
-        return this.listeRoom.get(roomIndex);
-    }
-
-    public boolean ajouterRoom(Room nouvelleRoom){
-        return this.listeRoom.add(nouvelleRoom);
-    }
-
-    public void setListeMonstres(List<Monster> listeMonstres) {
-        this.listeMonstres = listeMonstres;
-    }
-
-    public void setCurrentRoom(int currentRoom) {
-        this.currentRoom = currentRoom;
-    }
-
-
 
 
 }
