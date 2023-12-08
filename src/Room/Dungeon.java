@@ -108,12 +108,13 @@ public class Dungeon {
             roomToEnter.enterRoom(hero);
         } while((hero.isAlive())&&(this.currentRoom<this.nombreRoom));
         SaveState newSave = new SaveState(hero);
+        System.out.println(" ");
         this.endGameEvent.saveGame(newSave);
         if (!hero.isAlive()) {
             System.out.println("\nThe Hero is dead\n");
             playerChoice = this.endGameEvent.gameOver();
         } else {
-            System.out.println("\nYou defeated all the monsters\n");
+            System.out.println("\nYou defeated all the monsters");
             playerChoice = this.endGameEvent.victory();
             }
         switch (playerChoice){
