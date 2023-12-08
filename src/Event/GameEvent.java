@@ -3,21 +3,24 @@ package Event;
 import GestionUtilisateur.GestionUser;
 import Room.Dungeon;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
 
-import java.io.File;
-import java.io.IOException;
-
+/**
+ * Classe permettant de gérer les événements majeurs du programme : lancement, victoire, défaite, sauvegarde du score
+ */
 public class GameEvent {
 
     GestionUser gestionUser = new GestionUser();
 
-    public void StartGame(){
+    public void startGame(){
         new Dungeon(ConfigDungeon.getNumberOfRoomTest());
     }
 
+    /**
+     * Ecran de défaite affichant un texte approprié à la situation. Une fois le texte affiché, il est demandé au joueur
+     * s'il veut rejouer
+     * @return le choix du joueur pour lancer ou non une nouvelle partie "Y" ou "N"
+     */
     public String gameOver(){
         String defeatEndGameText = "\nIn the echoing depths of the foreboding dungeon, a haunting silence descends as the \n" +
                 "valiant hero lies fallen, defeated by the malevolent forces that lurk within. The once-hopeful mission \n" +
@@ -33,10 +36,13 @@ public class GameEvent {
         System.out.println(defeatEndGameText);
         return this.gestionUser.promptYesNo("\nDefeat has befallen our valiant hero. Would you dare to rise again, " +
                 "face the looming shadows, and rewrite the destiny that awaits in the dungeon's depths ?\n");
-
-
     }
 
+    /**
+     * Ecran de victoire affichant un texte approprié à la situation. Une fois le texte affiché, il est demandé au joueur
+     * s'il veut rejouer
+     * @return le choix du joueur pour lancer ou non une nouvelle partie "Y" ou "N"
+     */
     public String victory(){
         String victoryEndGameText = "\nIn the dimly lit chambers of the ominous dungeon, a triumphant hush falls. The valiant hero,\n" +
                 "armed with unwavering courage and a gleaming blade, has vanquished every monstrous foe that dared to roam the echoing halls.\n" +
@@ -54,6 +60,11 @@ public class GameEvent {
         return this.gestionUser.promptYesNo("\nWould you like to play again ?\n");
     }
 
+    /**
+     * A partir d'un objet SaveState, transforme en une chaine de caractère compatible avec le format JSON, et la sauvegarde
+     * dans une liste. Dans une évolution future, il sera nécessaire de sauvegarder au format JSON ou
+     * @param newSave POJO représentant les éléments de fin de partie utilisée pour le score
+     */
     public void saveGame(SaveState newSave) {
         String jsonString = "";
         ObjectMapper objectMapper = new ObjectMapper();
@@ -63,5 +74,6 @@ public class GameEvent {
             System.out.println("Echec transposition JSON");
         }
         System.out.println(jsonString);
+        ConfigDungeon.getSavedGame().add(jsonString);
     }
 }
